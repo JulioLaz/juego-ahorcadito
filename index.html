@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="style.css">
+   <title>ahorcado</title>
+</head>
+<body>
+   <header>
+<h1>JUEGO DEL AHORCADITO</h1>
+   </header>
+<main>
+   <input type="text" name="juego" id="info" class="info" >
+   <label for="juego">Insertar letra</label>
+<input type="text" name="juego" id="letra" placeholder="_" class="letra" maxlength="1">
+
+<label for="salida">Letras Coincidentes</label>
+<input type="text" name="salida" id="letraIngresada" placeholder="..." class="letraIngresada" readonly>
+
+<button id="comprobar" onclick="btnComprobar()" class="">Comprobar</button>
+</main>
+<footer>
+
+
+</footer>
+   <script src="ahorcado.js"></script>
+</body>
+</html>
