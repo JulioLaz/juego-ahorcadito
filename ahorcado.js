@@ -15,88 +15,78 @@ const $btnEnfocar = document.querySelector("#comprobar"),
 	   $nombre = document.querySelector("#letra");
       $btnEnfocar.addEventListener("click", () => {$nombre.focus();});
 
-
 let salida = document.querySelector(".letraIngresada"),
     entrada = document.querySelector(".letra"),
     info = document.querySelector(".info");
 
 let palabraSecreta=palabras[Math.round(Math.random()*10)]; 
-console.log(palabraSecreta);
+   console.log(palabraSecreta);
 
 let arrayPalabra= palabraSecreta.split("");
-let longitudPalabra= arrayPalabra.length;
 
 let palabraOculta=arrayPalabra.map((letra,indice, arrayPalabra)=>{
    return letra==arrayPalabra[indice] ? "_ " : letra;
 })
+let e=0;
+let arrayIntentos=[];
 
-let intentos=[];
 function btnComprobar(){
-   e++;
    const letra =document.querySelector("#letra").value;
-   let nuevaPalabraOculta=palabraOculta;
-
-
-      for(let i in arrayPalabra){
-         if(letra==arrayPalabra[i]){
-            nuevaPalabraOculta[i]=letra;
-            salida.value= palabraOculta.join("");
-            entrada.value="";
-         }
-      }
-      contadorIntentos(letra,e,count);
-      
-   }
-   let e=0;
-
-  
    
-let count=0;
-   function contadorIntentos(letra,e,count){
+   e++;
+   for(let i in arrayPalabra){
+      if(letra==arrayPalabra[i]){
+         palabraOculta[i]=letra;
+         salida.value= palabraOculta.join("");
+         entrada.value="";
+      }
+   }
+   contadorIntentos(letra,e);
+   contadorFallos(letra)
+   console.log("e en funcion boton: "+e);
+}
+let a=0;
+let arrayErrores=[];
+function contadorFallos(letra){
+   if(!arrayPalabra.includes(letra)){
+      arrayErrores[a]=letra;
+      a=a+1;
+      let veces=3-parseInt(a);
+      info.value= "erraste: quedan "+ veces + ' intentos';
+      console.log("a: "+a);
+      entrada.value="";
+    if(arrayErrores.length === 3){
+       console.log('arrayErrores: '+ arrayErrores);
+       info.value="PERDISTE";
+    }
+   }
+}
+function contadorIntentos(letra,e){
       
-      count++;
-      intentos[e]=letra;
-      console.log(intentos);
-      console.log(arrayPalabra.length);
-      console.log(e);
-      console.log("count: "+ count);
+      e=e-1;
+      let a=0;
+      console.log(arrayIntentos);
+      console.log("arrayPlalbras: "+arrayPalabra.length);
+      console.log("e en contador: " +e);
       
       const arraySinLetrasRepetidas = arrayPalabra.filter((valor, indice) => {
          return arrayPalabra.indexOf(valor) === indice});
-
-      if(arrayPalabra.includes(letra)){
-        
-         info.value= "INGRESA OTRA LETRA"; console.log("INGRESA OTRA LETRA: "+e );
          
-         if(arraySinLetrasRepetidas === arrayPalabra){
-            console.log(arraySinLetrasRepetidas + arrayPalabra);
+         if(arrayPalabra.includes(letra)){
+         arrayIntentos[e]=letra;
+           info.value= "INGRESA OTRA LETRA";
+         if(arrayIntentos.length == arraySinLetrasRepetidas.length){
+            console.log(arraySinLetrasRepetidas + arrayIntentos);
             info.value="GANASTE";
-         }
-      }else if(e<3){
-         count++;
-         let veces=3-parseInt(e);
-         info.value="tenes "+ veces+ " intentos";
-         console.log("SIGUE INTENTANDO")
-         
-         
-         entrada.value="";
-         console.log(e);
-      }else{
-         salida.value="";
-         info.value="PERDISTE";
-         console.log("PERDISTE")
-      }
+         }}
    }
 
-// console.log("palabra a guiones: "+palabraOculta + "guiones: " +palabraOculta.toString());
 let guiones = palabraOculta.toString();
 
 function ponerGuiones(){
    
    salida.value =palabraOculta.join("");
-   // console.log(salida.value);
 }
 ponerGuiones();
 
-// console.log(palabraOculta.join("") + typeof palabraOculta );
 
