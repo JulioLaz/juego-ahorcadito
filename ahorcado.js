@@ -8,7 +8,8 @@ const palabras=[
    "flor",
    "perro",
    "gato",
-   "ave"
+   "ave",
+   "pan"
 ]
 
 const $btnEnfocar = document.querySelector("#comprobar"),
