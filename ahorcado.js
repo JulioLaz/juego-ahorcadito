@@ -70,10 +70,17 @@ function contadorFallos(ltr){
       a=a+1;
       let veces=3-parseInt(a);
       info.value= "erraste: quedan "+ veces + ' intentos';
+      if(veces===2){
+         caja(true);
+      }
+      if(veces===1){
+         persona();
+      }
       entrada.value="";
       arrayErroresLimpio = arrayErrores.filter(Boolean);
 console.log("array sin guioen: "+ arrayErroresLimpio)
       if(arrayErrores.length === 3){
+         caja(false);
           info.value="PERDISTE";
           setTimeout(function(){
             alert("Inicia un nuevo juego");

@@ -27,13 +27,20 @@ ctx.stroke();
 ctx.beginPath();
 ctx.lineWidth=3;
 ctx.strokeStyle = 'black';
-ctx.lineTo(400,16);
+ctx.lineTo(400,32);
 ctx.lineTo(400,120);
 ctx.stroke();
 
 ctx.beginPath();
 ctx.lineWidth=3;
-ctx.arc(400, 144, 23, 0, Math.PI * 2, true); // Círculo externo
+ctx.strokeStyle = 'black';
+ctx.moveTo(10,364);
+ctx.lineTo(455,364);
+ctx.stroke();
+
+ctx.beginPath();
+ctx.lineWidth=3;
+ctx.arc(400, 144, 23, 0, Math.PI * 2, true);
 ctx.moveTo(110, 75);
 ctx.stroke();
 }
@@ -45,10 +52,17 @@ function persona(){
    img. src = "varon.png";
    img.onload= function(){ctx.drawImage(img, 366, 125,70,200);}
 }
-persona();
 
-function caja(){
-   ctx.fillStyle = "black";
-   ctx.fillRect(350,325,100,40);
-}
-caja();
+
+function caja(a){
+   if(a){
+      ctx.fillStyle = "green";
+      ctx.fillRect(350,325,100,36);
+   }else{
+      ctx.fillStyle = "green";
+      ctx.fillRect(250,325,100,36);
+      ctx.fillStyle = "white";
+      ctx.fillRect(350,325,100,36);
+   }
+   }
+
