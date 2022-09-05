@@ -20,3 +20,25 @@ button{
    border-radius: .5rem;
    height: 3rem;
 }
+.letraI{
+   text-align: center;
+   justify-content: center;
+   font-size: 2rem;
+   display: flex;
+   margin: 1rem;
+   /* width: 60vw; */
+   height: 10vh;
+   border: 2px solid black;
+}
+.hidden {
+   display: flex;
+   justify-content: center;
+   padding: 0.5em;
+   font-size: calc(1.2rem+.3vw);
+   font-weight: bold;
+   margin: 5px;
+   width: 3vw;
+   text-align: center;
+   border-bottom: 5px solid #666;
+   text-transform: uppercase;
+}

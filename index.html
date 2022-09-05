@@ -9,23 +9,22 @@
 </head>
 <body>
    <header>
-<h1>JUEGO DEL AHORCADITO</h1>
+      <h1>JUEGO DEL AHORCADITO</h1>
    </header>
-<main>
-   <input type="text" name="juego" id="info" class="info" readonly>
-   <!-- <label for="juego">Insertar letra</label> -->
-   <input type="text" name="juego" id="letra" placeholder="_" class="letra" maxlength="1" autofocus>
+   <main>
+      <!-- <div class="info" id="info"></div> -->
+      <input type="text" name="juego" id="info" class="info" readonly>
+      <input type="text" name="juego" id="letra" placeholder="_" class="letra" maxlength="1" autofocus>
+      <div class="letraI" id="letraI"></div>
+      <div class="letraI" id="errores"></div>
 
-<label for="salida">Letras Coincidentes</label>
-<input type="text" name="salida" id="letraIngresada" placeholder="..." class="letraIngresada" readonly>
+      <button id="comprobar" onclick="btnComprobar()" class="">Comprobar</button>
+   </main>
+   <footer>
+      <canvas id="canvas" width="600" height="400"></canvas>
+   </footer>
 
-<button id="comprobar" onclick="btnComprobar()" class="">Comprobar</button>
-</main>
-<footer>
-<canvas id="canvas" width="600" height="400"></canvas>
-
-</footer>
-<script src="001.js"></script>
+<script src="dibu.js"></script>
 <script src="ahorcado.js"></script>
 </body>
 </html>
