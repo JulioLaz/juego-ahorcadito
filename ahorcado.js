@@ -1,4 +1,5 @@
 const palabras=[
+   "alura",
    "casa",
    "mesa",
    "arbol",
@@ -11,14 +12,27 @@ const palabras=[
    "ave",
    "pan"
 ];
-//ejecuta la funcion del boton comprobar con ENTER o SPACE
-let elInput = document.getElementById('letra');
-elInput.addEventListener('keyup', function(e) {
-      var keycode = e.keyCode;
-      if (keycode == 13 || keycode == 32) {
-         btnComprobar();
+      
+let soloLetras = /^[a-zA-Z]/;
+      // ejecuta la funcion del boton comprobar con ENTER o SPACE
+function ingresoCaracter(){
+         let elInput = document.getElementById('letra');
+         elInput.addEventListener('keyup', e=> {
+         dato = e.key;
+         keycode = e.keyCode;
+            if (dato.match(soloLetras)){
+               if ((keycode === 13)){
+                     btnComprobar();
+               }
+            }else{
+               info.value='Caracter no válido!!!';
+               setTimeout(function(){
+               entrada.value=""}, 600);
+               
+            }
+         });
       }
-});
+      
 
 //cursor en input entrada
 const btnEnfocar = document.querySelector("#comprobar"),
@@ -26,13 +40,13 @@ const btnEnfocar = document.querySelector("#comprobar"),
       btnEnfocar.addEventListener("click", () => {$nombre.focus();});
 
 let entrada = document.querySelector(".letra"),
-    info = document.querySelector(".info");
+    info = document.querySelector(".info"),
+    vidas = document.querySelector("#vida");
     
     //Palabra secreta aleatoria:
 let palabraSecreta=palabras[Math.round(Math.random()*10)];
 console.log(palabraSecreta);
-info.value="Inserte una letra: "+palabraSecreta;//en el input #info
-   
+info.value="Inserte una letra: "//en el input #info
 //array sin comas
 let arrayPalabra= palabraSecreta.split('');
 
@@ -43,24 +57,30 @@ function verPalabra(palabraOculta){
       let elem='';
       let letras = palabraSecreta.split('');
 
+      console.log(palabraOculta+ "   "+ letras)         
       letras.forEach((e)=> {
          if(palabraOculta.includes(e)){
             elem += `<div class="hidden">${e}</div>`;
          }
          else{
             elem += `<div class="hidden">🙈</div>`;
-            }
-         });
+         }
+      });
       document.getElementById("letraI").innerHTML=elem;
    }
+   
+   function btnComprobar(){
+      let letra = document.querySelector("#letra").value;
+      let ltr;
+      if(letra.match(soloLetras)){
+         ltr=letra.toLowerCase();
 
-function btnComprobar(){
-      let letra = document.querySelector("#letra").value,
-          ltr=letra.toLowerCase();
-      for(let i in arrayPalabra){
-         if(ltr==arrayPalabra[i]){
-            palabraOculta[i]=ltr;
-            entrada.value="";
+         
+         for(let i in arrayPalabra){
+            if(ltr==arrayPalabra[i]&&ltr.match(soloLetras)&&!((ltr=== " ")||(ltr=== ""))){
+               palabraOculta[i]=ltr;
+               entrada.value="";
+            }
          }
       }
       contadorFallos(ltr);
@@ -73,7 +93,7 @@ let arrayErrores=[],
     a=0;//incrementador array de letras erradas
 
 function contadorFallos(ltr){
-   if(!((ltr=== " ")||(ltr=== ""))){//elimino espacios vacios
+   if(!((ltr.value=== " ")||(ltr.value=== ""))){//elimino espacios vacios
       if(!arrayPalabra.includes(ltr)){
          arrayEntrada[a]=ltr;
 
@@ -84,7 +104,7 @@ function contadorFallos(ltr){
 
          document.getElementById("errores").innerHTML=arrayErrores;
          info.value= "erraste: quedan "+ veces + ' intentos';
-         
+         vidas.value=veces
          if(veces===2){
             caja(true);
          }
@@ -103,7 +123,7 @@ function contadorFallos(ltr){
       entrada.value="";
       }
    }
-   
+
 function contadorIntentos(ltr){
    let a1=palabraOculta.join(''),
        a2=arrayPalabra.join('');
@@ -131,5 +151,12 @@ function contadorIntentos(ltr){
 
 function ponerGuiones(){
    verPalabra(palabraOculta);
+   ingresoCaracter();
+   vidas.value=3;
+
 }
 ponerGuiones();
+
+function refrescar(){
+   window.location.reload()
+}

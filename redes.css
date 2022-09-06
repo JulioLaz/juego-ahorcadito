@@ -1,0 +1,54 @@
+.redes{
+      display: flex;
+      justify-content: center;
+   }
+   img{
+      width: 25px;
+      margin: 0 1.2rem;
+   }
+
+   img:hover{
+   width: 35px;
+   border-radius: 50%;
+   transition:width 0.3s ease ;
+   }
+
+   img#youtube:hover{
+      background-color: #3b5998;
+   }
+
+   img#facebook:hover{
+      background-color: #3b5998;
+   }
+
+   img#linkedin:hover{
+      background-color:#0e76a8;
+   }
+
+   img#github:hover{
+      background-color: #171515;
+   }
+
+   img#instagram:hover{
+      background: #d6249f;
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%)
+   }
+
+   img#twitter:hover{
+      background-color: #00acee ;
+   }
+   
+   span{
+      width: 38px;
+      height: 38px;
+      }
+
+   #alura{
+      width: 5rem;
+   }
+   #copyright{
+      font-size: calc(.5rem + 0.8vw);
+      color: red;
+      text-align: center;
+      margin-bottom: .3rem;
+   }

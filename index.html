@@ -4,27 +4,68 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="description" content="Juego Ahorcado desafío Alura">
+   <meta name="keywords" content="Juedo ahorcado propuesto como desafío del curso para principiantes de ALURA">
    <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="reset.css">
+   <link rel="stylesheet" href="redes.css">
+   <link rel="stylesheet" href="animacion.css">
    <title>ahorcado</title>
 </head>
 <body>
    <header>
-      <h1>JUEGO DEL AHORCADITO</h1>
+         <h1>JUEGO DEL AHORCADO</h1>
+         <div class="caja">
+             <h1><img src="img/Vector.png"></h1>
+             <textarea name="" id="textarea-i" cols="30" rows="10"></textarea>
+             <nav>
+               
+                <a href="juego.html"><button id="btnIniciarJuego">JUGAR</button></a>
+                 <ul>
+                     <li><a href="contacto.html">Contacto</a></li>
+                 </ul>
+             </nav>
+         </div>
+
    </header>
    <main>
-      <!-- <div class="info" id="info"></div> -->
-      <input type="text" name="juego" id="info" class="info" readonly>
-      <input type="text" name="juego" id="letra" placeholder="_" class="letra" maxlength="1" autofocus>
-      <div class="letraI" id="letraI"></div>
-      <div class="letraI" id="errores"></div>
 
-      <button id="comprobar" onclick="btnComprobar()" class="">Comprobar</button>
+      
    </main>
    <footer>
-      <canvas id="canvas" width="600" height="400"></canvas>
+      <div class="redes">
+         <span>
+            <a target="blanck" href="https://www.facebook.com/profile.php?id=100009817426057
+            "><img src="./img/facebook.png" id="facebook"></a>
+         </span>
+
+         <span>
+            <a target="blanck" href="https://github.com/JulioLaz"><img src="./img/github.png" id="github"></a>
+         </span>
+
+         <span>
+            <a target="blanck" href="https://www.linkedin.com/in/julio-lazarte-349468248?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BubU1fpKpQi6Kp7t%2FBq5AtA%3D%3D"><img src="./img/linkedin.png" id="linkedin"></a>
+         </span>
+
+         <span>
+            <a target="blanck" href="https://twitter.com/home"><img src="./img/twitter.png" id="twitter"></a>
+         </span>
+         
+         <span>
+            <a target="blanck" href="https://www.aluracursos.com/"><img src="./img/alura.png" id="alura"></a>
+         </span>
+      </div>
+      
+      <div>
+         <span>
+            <p id="copyright">Autor: Julio A. Lazarte - Argentina - Agradecimientos : "ALURA TEAM"</p>
+               <p id="copyright">&copy Copyright - AHORCADO / 2022</p>
+         </span>
+      </div>
    </footer>
 
 <script src="dibu.js"></script>
 <script src="ahorcado.js"></script>
+<script src="inicio.js"></script>
 </body>
 </html>

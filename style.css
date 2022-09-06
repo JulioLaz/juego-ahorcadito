@@ -1,12 +1,34 @@
+html{
+   background-color: rgba(198, 163, 121, 0.651);
+}
 main input{
    cursor: pointer;
 }
 input{
    text-align: center;
-   font-size: 2rem;
+   font-size: 1.5rem;
    display: flex;
    margin: 1rem;
+   width: 80vw;
 }
+.letra-vida{
+   display: flex;
+   text-align: center;
+}
+div .letra{
+   width: 40vw;
+   text-decoration: blink;
+}
+div .vida{
+   width: 20vw;
+}
+div .puntos{
+   width: 20vw;
+}
+div .formato-input{
+   height: 2.5rem;
+}
+
 button{
    display: inline-block;
    margin: 1rem;
@@ -41,4 +63,28 @@ button{
    text-align: center;
    border-bottom: 5px solid #666;
    text-transform: uppercase;
+}
+canvas{
+   width: 50vw;
+}
+.textarea-i{
+   resize: vertical;
+   width: 44vw;
+   height: 45vh;
+   border-radius:0 0 1rem 1rem;
+   padding: .5vw;
+   font-size: 1.2rem;
+   font-weight: 300;
+   border-bottom: 1px solid white;
+   border-left: 1px solid white;
+   border-right: 1px solid white;
+   font-size:clamp(.6rem, calc(.6rem + 0.6vw), 1.2rem);
+
+}
+.textarea-i{
+   background: rgba(164, 192, 224,.7);
+}
+.textarea-i:hover{
+   background-color: rgba(164, 192, 224,.5);
+   transition:background-color 0.4s ease ;
 }

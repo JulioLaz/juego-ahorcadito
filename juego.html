@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="reset.css">
+   <link rel="stylesheet" href="redes.css">
+   <title>ahorcado</title>
+</head>
+<body>
+   <header>
+      <h1 class="animated">JUEGO DEL AHORCADITO</h1>
+      <li><a href="index.html">Home</a></li>
+
+   </header>
+   <main>
+      <!-- <div class="info" id="info"></div> -->
+      <input type="text" name="juego" id="info" class="info animated" readonly>
+      <div class="letra-vida">
+         <div>
+            <label for="juego">JUGATE X UNA LETRA</label>
+            <input type="text" name="juego" id="letra" placeholder="_" class="letra formato-input" maxlength="1" autofocus>
+         </div>
+         <div class="">
+            <label for="vida">VIDAS</label>
+            <input type="text" name="vida" id="vida" class="vida animated formato-input" readonly>
+         </div>
+         <div class="">
+            <label for="puntos">PUNTOS</label>
+            <input type="text" name="puntos" id="puntos" class="puntos formato-input" readonly>
+         </div>
+      </div>
+      <div class="letraIngresada">
+         <div class="letraI" id="letraI"></div>
+         <div class="letraI errores" id="errores"></div>
+      </div>
+      <div class="botones">
+         <button id="comprobar" onclick="btnComprobar()" class="">Comprobar</button>
+         <button id="comprobar" onclick="refrescar()" class="">REFRESCAR</button>
+      </div>
+   </main>
+   <footer>
+      <canvas id="canvas" width="600" height="400"></canvas>
+
+   </footer>
+
+  <script src="dibu.js"></script>
+<script src="ahorcado.js"></script>
+</body>
+</html>
