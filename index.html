@@ -19,11 +19,15 @@
              <h1><img src="img/Vector.png"></h1>
              <textarea name="" id="textarea-i" cols="30" rows="10"></textarea>
              <nav>
-               
-                <a href="juego.html"><button id="btnIniciarJuego">JUGAR</button></a>
-                 <ul>
-                     <li><a href="contacto.html">Contacto</a></li>
-                 </ul>
+                <ul>
+                    <a href="juego.html"><button id="btnIniciarJuego">JUGAR</button></a>
+                </ul>
+                <ul>
+                    <a class="nivel" href="juego.html"><button id="btnIniciarJuego" onclick="btnNivel01()" >NIVEL 1</button></a>
+                    <a class="nivel" href="juego.html"><button id="btnIniciarJuego">NIVEL 2</button></a>
+                    <a class="nivel" href="juego.html"><button id="btnIniciarJuego">NIVEL 3</button></a>
+                </ul>
+
              </nav>
          </div>
 
@@ -34,24 +38,24 @@
    </main>
    <footer>
       <div class="redes">
-         <span>
+         <span class="red">
             <a target="blanck" href="https://www.facebook.com/profile.php?id=100009817426057
             "><img src="./img/facebook.png" id="facebook"></a>
          </span>
 
-         <span>
+         <span class="red">
             <a target="blanck" href="https://github.com/JulioLaz"><img src="./img/github.png" id="github"></a>
          </span>
 
-         <span>
+         <span class="red">
             <a target="blanck" href="https://www.linkedin.com/in/julio-lazarte-349468248?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BubU1fpKpQi6Kp7t%2FBq5AtA%3D%3D"><img src="./img/linkedin.png" id="linkedin"></a>
          </span>
 
-         <span>
+         <span class="red">
             <a target="blanck" href="https://twitter.com/home"><img src="./img/twitter.png" id="twitter"></a>
          </span>
          
-         <span>
+         <span class="red">
             <a target="blanck" href="https://www.aluracursos.com/"><img src="./img/alura.png" id="alura"></a>
          </span>
       </div>
@@ -64,8 +68,8 @@
       </div>
    </footer>
 
-<script src="dibu.js"></script>
-<script src="ahorcado.js"></script>
-<script src="inicio.js"></script>
+<script src="js/dibu.js"></script>
+<script src="js/ahorcado.js"></script>
+<script src="js/inicio.js"></script>
 </body>
 </html>
