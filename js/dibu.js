@@ -1,5 +1,5 @@
-   let canvas = document.getElementById("canvas");
-   let ctx = canvas.getContext("2d");
+   let canvas = document.getElementById('canvas');
+   let ctx = canvas.getContext('2d');
 
 function patibulo() {
 ctx.beginPath();
@@ -49,19 +49,19 @@ patibulo();
 
 function persona(){
    let img = new Image();
-   img. src = "varon.png";
+   img. src = 'varon.png';
    img.onload= function(){ctx.drawImage(img, 366, 125,70,200);}
 }
 
 
 function caja(a){
    if(a){
-      ctx.fillStyle = "green";
+      ctx.fillStyle = 'green';
       ctx.fillRect(350,325,100,36);
    }else{
-      ctx.fillStyle = "green";
+      ctx.fillStyle = 'green';
       ctx.fillRect(250,325,100,36);
-      ctx.fillStyle = "white";
+      ctx.fillStyle = 'white';
       ctx.fillRect(350,325,100,36);
    }
    }

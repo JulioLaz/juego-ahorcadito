@@ -6,7 +6,6 @@ header{
    width: 100vw;
 }
 marquee{
-
    display: flex;
    justify-content: space-between;
    align-items: center;
@@ -17,6 +16,11 @@ marquee{
    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
    margin:0 25vw;
    color:darkslategrey;
+}
+marquee.lista{
+   font-size: calc(.7rem + 1vw);
+   color: brown;
+   margin:0 8vw;
 }
 .info{
    background-color: rgba(113, 91, 64, 0.651);
@@ -35,6 +39,28 @@ input{
    margin: 1rem;
    width: 90vw;
 }
+.letra-vida{
+   display: flex;
+   text-align: center;
+   justify-content: space-evenly;
+   margin: 1.5rem 0;
+}
+div .letra{
+   width: 40vw;
+   text-decoration: blink;
+   cursor: pointer;
+   font-size: 2rem;
+
+}
+div .vida{
+   width: 10vw;
+   outline: none;
+
+}
+div .puntos{
+   width: 28vw;
+   outline: none;
+}
 
 div .formato-input{
    height: 2.5rem;
@@ -45,18 +71,53 @@ div .formato-input{
    font-weight: bold;
    border: 1px solid black;
    margin-top: 5px;
-
-
 }
 
+.letraIngresada{
+   display: flex;
+   justify-content: space-around;
+   margin-bottom: 2rem;
+}
+.letraI{
+   display: flex;
+   align-items: center;
+   font-size: calc(.5rem + 2vw);
+   border: 1px solid black;
+   border-radius: 1rem;
+   width: 25vw;
+   height: 10vh;
+   background-color: rgb(157, 144, 97);
+   padding:0 1rem;
    
+}
+.letra:hover{
+   background-color: rgba(159, 149, 113, 0.5);
 
+}
+.monitos{
+   display: flex;
+   justify-content: center;
+   align-items: flex-end;
+   font-size: calc(.7rem + 2vw);
+   border: 1px solid black;
+   border-radius: 1rem;
+   width: 55vw;
+   height: 10vh;
+   background-color: rgb(157, 144, 97);
+}
+.errores{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 20vw;
+   font-size: calc(1rem + 2vw);
+   
+}
 .hidden {
    display: flex;
    justify-content: center;
    align-items: center;
    padding: 0.5em;
-   /* font-size: calc(1rem+.3vw); */
    font-weight: bold;
    margin:0 5px 5px 5px;
    width: 3vw;
@@ -65,34 +126,13 @@ div .formato-input{
    border-bottom: 5px solid rgb(52, 51, 51);
    text-transform: uppercase;
 }
-.textarea-i{
-   resize: vertical;
-   width: 44vw;
-   height: 45vh;
-   border-radius:0 0 1rem 1rem;
-   padding: .5vw;
-   font-size: 1.2rem;
-   font-weight: 300;
-   border-bottom: 1px solid white;
-   border-left: 1px solid white;
-   border-right: 1px solid white;
-   font-size:clamp(.6rem, calc(.6rem + 0.6vw), 1.2rem);
-   
-}
-.textarea-i{
-   background: rgba(164, 192, 224,.7);
-}
-.textarea-i:hover{
-   background-color: rgba(164, 192, 224,.5);
-   transition:background-color 0.4s ease ;
-}
-
 footer{
    display: flex;
    justify-content: center;
 }
 canvas{
-   width: 40vw;
+   width: 30vw;
+   height: auto;
    /* background: #000; */
    border: 1px solid black;
    border-radius: 2rem;

@@ -13,7 +13,7 @@ html {
       margin: .3rem .5rem;
    }
 
-   img:hover{
+   .imgFooter:hover{
    width: 35px;
    border-radius: 50%;
    transition:width 0.3s ease ;
@@ -64,7 +64,8 @@ html {
 
    }
 
-   footer {
+   footer{
+      flex-direction: column;
       background-color: black;
       position: absolute;
       bottom: 0;
@@ -73,6 +74,3 @@ html {
       color: white;
       padding: .5rem;
     }
-    /* .alura{
-      /* width: 6rem; */
-    /* } */ 
