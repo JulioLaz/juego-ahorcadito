@@ -133,7 +133,7 @@ footer{
 canvas{
    width: 30vw;
    height: auto;
-   /* background: #000; */
+   background-color: bisque;
    border: 1px solid black;
    border-radius: 2rem;
    padding:1rem;

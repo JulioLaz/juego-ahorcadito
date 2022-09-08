@@ -76,6 +76,7 @@ function btnComprobar(){
 
 let arrayErrores=[],
     arrayEntrada=[],
+    vida=5;
     a=0;//incrementador array de letras erradas
 
 function contadorFallos(ltr){
@@ -86,20 +87,22 @@ function contadorFallos(ltr){
 
          let arrayErrores = arrayEntrada.filter((item,index)=>{
              return arrayEntrada.indexOf(item) === index}),
-             veces=3-arrayErrores.length;
+             veces=vida-arrayErrores.length;
              a=a+1;
 
          document.getElementById('errores').innerHTML='😫: '+arrayErrores;
          info.value= 'erraste: quedan '+ veces + ' intentos';
          vidas.value=veces
-         if(veces===2){
-            caja(true);
-         }
-         if(veces===1){
+         if(veces===(vida-1)){
             persona();
          }
+         if(veces===(vida-2)){
+            muerte();
+            caja(true);
+         }
          entrada.value='';
-         if(arrayErrores.length === 3){
+         if(arrayErrores.length === vida){
+            personaDeath();
             caja(false);
              info.value='PERDISTE';
              document.getElementById('errores').innerHTML= "<img src=pinguinotriste.gif>";
@@ -130,7 +133,7 @@ function contadorIntentos(ltr){
       if(arrayPalabra.includes(ltr)){
          if(comparacionArrayEntradaSalida(a1,a2)){
             document.getElementById('errores').innerHTML= "<img src=pinguino.gif>";
-
+            ganaste();
             info.value='-----GANASTE-----';
             setTimeout(function(){
                alert('Inicia un nuevo juego');
