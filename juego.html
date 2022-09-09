@@ -9,10 +9,12 @@
    <title>ahorcado</title>
 </head>
 <body>
+
    <header>
       <marquee behavior='alternate' scrollamount='10' style='height: 40px'><h1>JUEGO DEL AHORCADITO</h1></MARQUEE>
-      <marquee scrollamount="15" loop="1" class='lista' style='height:30px'  scrollamount='10'><h1>NUMEROS - MESES - FRUTAS: 'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre','Mango', 'Manzana', 'Maracuyá', 'Melocotón', 'Membrillo', 'Naranja', 'Mandarina', 'Níspero', 'Nuez', 'Oliva', 'Papaya', 'Pera', 'Pomelo', 'Tamarindo','uno','dos','tres','cuatro','cinco','seis','siete','ocho','nueve','diez','once','doce'</h1></MARQUEE>
+      <marquee loop="1" class='lista' style='height:30px'  scrollamount='20'><h1>NUMEROS - MESES - FRUTAS: 'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre','Mango', 'Manzana', 'Maracuyá', 'Melocotón', 'Membrillo', 'Naranja', 'Mandarina', 'Níspero', 'Nuez', 'Oliva', 'Papaya', 'Pera', 'Pomelo', 'Tamarindo','uno','dos','tres','cuatro','cinco','seis','siete','ocho','nueve','diez','once','doce'</h1></MARQUEE>
    </header>
+
    <main>
       <div class='infoBanner'>
          <input type='text' name='juego' id='info' class='info ' readonly>
@@ -26,12 +28,15 @@
             <label for='vida'>VIDAS</label>
             <input type='text' name='vida' id='vida' class='vida animated formato-input' value='SinOutLine' readonly>
          </div>
+         <div class='letraIngresada' >
+            <div class='letraI errores' id='errores'></div>
+         </div>
       </div>
          <div class='letraIngresada' >
             <div class='letraI monitos' id='letraI'></div>
-            <div class='letraI errores' id='errores'></div>
          </div>
       </main>
+
       <footer>
          <div class='botones'>
          <button id='comprobar' onclick='btnComprobar()' class='btnJuego'>COMPROBAR</button>
@@ -39,7 +44,6 @@
          <a class='nivel' href='index.html'><button class='btnJuego'>HOME</button></a>
          </div>
          <canvas id='canvas' width='600' height='400'></canvas>
-
       </footer>
 
   <script src='js/dibu.js'></script>

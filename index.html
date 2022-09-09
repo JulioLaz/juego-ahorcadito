@@ -15,23 +15,35 @@
 <body>
    <header>
       <marquee behavior='alternate' scrollamount='20'><h1>JUEGO DEL AHORCADITO</h1></MARQUEE>
-   </header>
+      <div class="divAlura">
+         <marquee class='alura' style='height:80px'  scrollamount='50'>
+            <span><img src='img/Vector.png'></span>
+            <span class="aluraTxt">lura Latam</span>
+         </marquee>
+      </div>
+      </header>
    <main>
-         <h1>JUEGO DEL AHORCADO</h1>
          <div class='caja'>
-             <h1><img src='img/Vector.png'></h1>
-             <textarea name='' id='textarea-i' cols='30' rows='10'></textarea>
-             <nav>
-                <ul>
-                    <a href='juego.html'><button id='btnIniciarJuego'>JUGAR</button></a>
-                </ul>
-                <ul>
-                    <a class='nivel' href='juego.html'><button id='btnIniciarJuego' onclick='btnNivel01()' >NIVEL 1</button></a>
-                    <a class='nivel' href='juego.html'><button id=''onclick='btnNivel02()'>NIVEL 2</button></a>
-                    <a class='nivel' href='juego.html'><button id=''>NIVEL 3</button></a>
-                </ul>
-
-             </nav>
+            <div class="indicacion">
+               <ul>
+                  <h2 class="titulo">Juego del ahorcadito</h2>
+                  <li class="parrafo">El juego del ahorcadito es un juego para adivinar palabras.</li>
+                  <li class="parrafo">Las palabras serán tomadas aleatoriamente de una lista.</li>
+                  <li class="parrafo">La lista será mostrada rápidamente en un banner.</li>
+                  <li class="parrafo">El jugador debe tratar de adivinar acertando letra por letra.</li>
+                  <li class="parrafo">Tendrá cinco intentos.</li>
+                  <li class="parrafo">Podrás ingresar tus propias palabras.</li>
+                  <p class="pie">⛔ Las palabras ingresadas: máximo ocho letras!!!</p>
+               </ul>
+            </div>
+                 
+                
+                
+            
+             <div class="botones">
+                  <a href='juego.html'><button id='btnIniciarJuego' class="btn">JUGAR</button></a>
+                  <button class="btn nuevaPalabra">Agregar palabra</button>
+             </div>
          </div>
 
    </main>

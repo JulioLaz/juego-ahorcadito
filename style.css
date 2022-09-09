@@ -10,13 +10,25 @@ marquee{
    display: flex;
    justify-content: space-between;
    align-items: center;
-   height: 8vh;
+   height: 10vh;
    align-items: center;
    text-align: center;
-   font-size: calc(.8rem + 1vw);
    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-   margin:0 25vw;
+   margin:0 5vw;
    color:darkslategrey;
+   font-size: calc(1.5rem + 1vw);
+}
+
+.alura{
+   margin:0;
+   background-color: chocolate;
+}
+
+.aluraTxt{
+   font-size: 2.5rem;
+   font-family:Verdana, Geneva, Tahoma, sans-serif;
+   color:rgb(8, 59, 110);
+   font-weight: 900;
 }
 .info{
    background-color: rgba(113, 91, 64, 0.651);
@@ -49,76 +61,74 @@ div .formato-input{
 
 }
 
-   
+.caja{
 
-.hidden {
    display: flex;
+   flex-direction: column;
    justify-content: center;
    align-items: center;
-   padding: 0.5em;
-   /* font-size: calc(1rem+.3vw); */
-   font-weight: bold;
-   margin:0 5px 5px 5px;
-   width: 3vw;
-   height: 2vh;
-   text-align: center;
-   border-bottom: 5px solid rgb(52, 51, 51);
-   text-transform: uppercase;
 }
-.textarea-i{
-   resize: vertical;
-   width: 44vw;
+.indicacion{
+   width: 80vw;
    height: 45vh;
-   border-radius:0 0 1rem 1rem;
+   border-radius:1rem;
    padding: .5vw;
    font-size: 1.2rem;
    font-weight: 300;
-   border-bottom: 1px solid white;
-   border-left: 1px solid white;
-   border-right: 1px solid white;
+   border: 1px solid white;
+   margin: 2rem 0;
+
    font-size:clamp(.6rem, calc(.6rem + 0.6vw), 1.2rem);
+   background: rgba(160, 186, 215, 0.7);
+   resize:none;
    
 }
-.textarea-i{
-   background: rgba(164, 192, 224,.7);
-}
-.textarea-i:hover{
+
+.indicacion:hover{
    background-color: rgba(164, 192, 224,.5);
    transition:background-color 0.4s ease ;
 }
+ul{
+   padding: 1.2rem;
+}
 
+.titulo{
+   text-align: center;
+   margin-bottom: .8rem;
+   font-size: 2rem;
+}
+.parrafo{
+   font-size: calc(.8rem + .6vw);
+   padding: .2rem;
+   margin: .3rem 1rem;
+}
+.pie{
+   margin-top: 1.5rem;
+   text-align: center;
+}
 footer{
    display: flex;
    justify-content: center;
 }
-canvas{
-   width: 40vw;
-   /* background: #000; */
-   border: 1px solid black;
-   border-radius: 2rem;
-   padding:1rem;
-   box-shadow: 0px 0px 15px 10px rgba(0, 0, 0, 0.4);
 
-}
 
 .botones{
-   flex-direction: column;
    display: flex;
-   margin: 2rem;
 }
-.btnJuego{
+.btn{
    display: inline-block;
    font-size: calc(.6rem + .8vw);
-   width: 25vw;
+   width: 35vw;
    height: 2.5rem;
-   margin: 1rem;
+   margin: 0 .5rem;
+   border: 1px solid white;
 
-   background-color:rgb(162, 121, 17);
+   background-color:rgb(205, 129, 22);
    color: white;
    border-radius: .6rem;
    box-shadow: -5px 0px 15px 3px rgba(0, 0, 0, 0.4);
 }
-.btnJuego:hover{
+.btn:hover{
    font-size: calc(.7rem + .8vw);
    background-color:rgba(162, 121, 17,.5);
    color: bisque;

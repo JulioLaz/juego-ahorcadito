@@ -49,7 +49,7 @@ div .letra{
    width: 40vw;
    text-decoration: blink;
    cursor: pointer;
-   font-size: 2rem;
+   font-size: 3rem;
 
 }
 div .vida{
@@ -63,7 +63,7 @@ div .puntos{
 }
 
 div .formato-input{
-   height: 2.5rem;
+   height: 4rem;
    border-radius: 1rem;
    box-shadow: 8px 8px 10px 3px rgba(0, 0, 0, 0.4);
    background-color: rgba(198, 163, 121, 0.651);
@@ -73,11 +73,6 @@ div .formato-input{
    margin-top: 5px;
 }
 
-.letraIngresada{
-   display: flex;
-   justify-content: space-around;
-   margin-bottom: 2rem;
-}
 .letraI{
    display: flex;
    align-items: center;
@@ -92,16 +87,21 @@ div .formato-input{
 }
 .letra:hover{
    background-color: rgba(159, 149, 113, 0.5);
-
+   
+}
+.letraIngresada{
+   display: flex;
+   justify-content: space-around;
 }
 .monitos{
+   margin-bottom: 1rem;
    display: flex;
    justify-content: center;
    align-items: flex-end;
-   font-size: calc(.7rem + 2vw);
+   font-size: calc(1rem + 2vw);
    border: 1px solid black;
    border-radius: 1rem;
-   width: 55vw;
+   width: 90vw;
    height: 10vh;
    background-color: rgb(157, 144, 97);
 }
@@ -110,6 +110,7 @@ div .formato-input{
    justify-content: center;
    align-items: center;
    width: 20vw;
+   height: 15vw;
    font-size: calc(1rem + 2vw);
    
 }
@@ -152,6 +153,7 @@ canvas{
    width: 25vw;
    height: 2.5rem;
    margin: 1rem;
+   border: 1px solid white;
 
    background-color:rgb(162, 121, 17);
    color: white;
