@@ -86,7 +86,11 @@ ctx.lineTo(450,270);
 ctx.stroke();
 }
 
-
+function cuervo(){
+   let img = new Image();
+   img. src = 'img/cuervo.png';
+   img.onload= function(){ctx.drawImage(img, 470, 30,60,60);}
+}
 
 function muerte(){
 let img = new Image();

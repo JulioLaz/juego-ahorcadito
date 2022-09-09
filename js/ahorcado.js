@@ -94,19 +94,24 @@ function contadorFallos(ltr){
          info.value= 'erraste: quedan '+ veces + ' intentos';
          vidas.value=veces
          if(veces===(vida-1)){
-            persona();
+            caja(true);
          }
          if(veces===(vida-2)){
+            persona();
+         }
+         if(veces===(vida-3)){
             muerte();
-            caja(true);
+         }
+         if(veces===(vida-4)){
+            cuervo();
          }
          entrada.value='';
          if(arrayErrores.length === vida){
             personaDeath();
             caja(false);
              info.value='PERDISTE';
-             document.getElementById('errores').innerHTML= "<img src=pinguinotriste.gif>";
-             setTimeout(function(){alert('Inicia un nuevo juego');
+             document.getElementById('errores').innerHTML= "<img src=img/pinguinotriste.gif>";
+             setTimeout(function(){alert('!!!PERDISTE!!!');
                location. reload()}, 500);
          }
       }
@@ -132,11 +137,11 @@ function contadorIntentos(ltr){
    }
       if(arrayPalabra.includes(ltr)){
          if(comparacionArrayEntradaSalida(a1,a2)){
-            document.getElementById('errores').innerHTML= "<img src=pinguino.gif>";
+            document.getElementById('errores').innerHTML= "<img src=img/pinguino.gif>";
             ganaste();
             info.value='-----GANASTE-----';
             setTimeout(function(){
-               alert('Inicia un nuevo juego');
+               alert('!!!GANASTE!!!');
                location. reload();
              }, 1000);
          }else{

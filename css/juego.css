@@ -28,7 +28,7 @@ marquee.lista{
    width: 100%;
    height: 4rem;
    margin: 0;
-   border: none;
+   border: 2px solid burlywood;
    font-size: calc(1.5rem + .8vw);
 }
 
@@ -36,14 +36,14 @@ input{
    text-align: center;
    font-size: 1.5rem;
    display: flex;
-   margin: 1rem;
+   margin: .5rem 0;
    width: 90vw;
 }
 .letra-vida{
    display: flex;
    text-align: center;
    justify-content: space-evenly;
-   margin: 1.5rem 0;
+   margin: 1rem 0;
 }
 div .letra{
    width: 40vw;
@@ -110,7 +110,7 @@ div .formato-input{
    justify-content: center;
    align-items: center;
    width: 20vw;
-   height: 15vw;
+   height: 6rem;
    font-size: calc(1rem + 2vw);
    
 }
