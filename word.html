@@ -27,11 +27,12 @@
             <div class="indicacion">
                   <h2 class="titulo">Juego del ahorcadito</h2>
                   <input type="text" id="palabraIngresada" placeholder='Ingresa tu palabra favorita' class='palabraIngresada' maxlength='8' autofocus>
+                  <input type="text" id="palabraIngresadaAdd" class='palabraIngresada' readonly>
                   <p class="pie">⛔ Las palabras ingresadas: máximo ocho letras!!!</p>
             </div>
              <div class="botones">
                   <a href='juego.html'><button id='btnIniciarJuego' class="btn">JUGAR</button></a>
-                  <button class="btn nuevaPalabra">Agregar palabra</button>
+                  <button class="btn nuevaPalabra" id="getWord" onclick="btnGetWord()">Agregar palabra</button>
                   <a href='index.html'><button id='btnIniciarJuego' class="btn">HOME</button></a>
              </div>
          </div>
@@ -70,8 +71,7 @@
       </div>
    </footer>
 
-<script src='js/dibu.js'></script>
-<script src='js/ahorcado.js'></script>
-<script src='js/inicio.js'></script>
+<script src='js/lista.js'></script>
+<script src='js/word.js'></script>
 </body>
 </html>

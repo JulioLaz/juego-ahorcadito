@@ -1,10 +1,4 @@
-let palabraSecreta=listas[Math.round(Math.random()*10)],
-    arrayPalabra= palabraSecreta.split(''),
-    palabraOculta=arrayPalabra.map((l,i, arrayPalabra)=>{return l==arrayPalabra[i] ? '_ ' : l});
-   
-    console.log('palabras secreta: '+ palabraSecreta);
-
-   //cursor en input entrada
+//cursor en input entrada
 const btnEnfocar = document.querySelector('#comprobar'),
 	   $nombre = document.querySelector('#letra');
       btnEnfocar.addEventListener('click', () => {$nombre.focus();});
@@ -14,12 +8,26 @@ let entrada = document.querySelector('.letra'),
     vidas = document.querySelector('#vida'),
     puntos = document.querySelector('#puntos');
 
-    info.value='Inicia con una letra!!! '//en el input #info
+    info.value='Inicia con una letra!!!';//en el input #info
 
 document.getElementById('errores').innerHTML='😒: ';
       
 let soloLetras = /^[a-zA-Z]/;
 
+
+
+
+
+// console.log(newlista);
+console.log(listas);
+
+let palabraSecreta=listas[Math.round(Math.random())],
+    arrayPalabra= palabraSecreta.split(''),
+    palabraOculta=arrayPalabra.map((l,i, arrayPalabra)=>{return l==arrayPalabra[i] ? '_ ' : l});
+   
+    console.log('palabras secreta: '+ palabraSecreta);
+
+document.getElementById('listaBanner').innerHTML= listas;
 // ejecuta la funcion del boton comprobar con ENTER
 function ingresoCaracter(){
          let elInput = document.getElementById('letra');
@@ -156,5 +164,5 @@ function ponerGuiones(){
    vidas.value=5;
 }
 ponerGuiones();
-
+// }
 function refrescar(){window.location.reload()}
