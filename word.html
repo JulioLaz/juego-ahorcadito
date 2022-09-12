@@ -6,6 +6,7 @@
    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
    <meta name='description' content='Juego Ahorcado desafío Alura'>
    <meta name='keywords' content='Juedo ahorcado propuesto como desafío del curso para principiantes de ALURA'>
+   <link rel="shortcut icon" href="img/icon-H.png" type="image/x-icon">
    <link rel='stylesheet' href='css/word.css'>
    <link rel='stylesheet' href='css/reset.css'>
    <link rel='stylesheet' href='css/redes.css'>
@@ -31,7 +32,9 @@
                   <p class="pie">⛔ Las palabras ingresadas: máximo ocho letras!!!</p>
             </div>
              <div class="botones">
-                  <a href='juego.html'><button id='btnIniciarJuego' class="btn">JUGAR</button></a>
+                  <a href='juego.html'>
+                     <button id='btnIniciarJuego' class="btn" onclick="btnJugar">JUGAR</button>
+                  </a>
                   <button class="btn nuevaPalabra" id="getWord" onclick="btnGetWord()">Agregar palabra</button>
                   <a href='index.html'><button id='btnIniciarJuego' class="btn">HOME</button></a>
              </div>
@@ -71,7 +74,8 @@
       </div>
    </footer>
 
-<script src='js/lista.js'></script>
-<script src='js/word.js'></script>
+<!-- <script src='js/lista.js'></script> -->
+<!-- <script src='js/word.js'></script> -->
+<script src='js/ahorcado.js'></script>
 </body>
 </html>

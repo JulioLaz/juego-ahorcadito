@@ -1,3 +1,16 @@
+
+  window.listas=['enero', 'febrero'];
+function btnGetWord(){
+   let word = document.getElementById('palabraIngresada').value;
+   listas.push(word);
+   
+   console.log('word: '+ word + "  listas nueva: "+ listas);
+   // return listas;
+   // star(listas);
+   y=star(listas);
+console.log(y);
+}
+
 //cursor en input entrada
 const btnEnfocar = document.querySelector('#comprobar'),
 	   $nombre = document.querySelector('#letra');
@@ -14,18 +27,26 @@ document.getElementById('errores').innerHTML='😒: ';
       
 let soloLetras = /^[a-zA-Z]/;
 
-
-
-
-
 // console.log(newlista);
 console.log(listas);
 
-let palabraSecreta=listas[Math.round(Math.random())],
-    arrayPalabra= palabraSecreta.split(''),
+// function btnJugar(){
+//    star(listas)
+// }
+
+function star(list){
+   let palabraSecreta=list[Math.round(Math.random())];
+   console.log(palabraSecreta);
+   console.log(list);
+   return palabraSecreta;
+}
+// y=star(listas);
+// x=btnGetWord()
+
+    arrayPalabra= y.split('');
     palabraOculta=arrayPalabra.map((l,i, arrayPalabra)=>{return l==arrayPalabra[i] ? '_ ' : l});
    
-    console.log('palabras secreta: '+ palabraSecreta);
+    console.log('palabras secreta: '+ y);
 
 document.getElementById('listaBanner').innerHTML= listas;
 // ejecuta la funcion del boton comprobar con ENTER
@@ -49,7 +70,7 @@ function ingresoCaracter(){
 function verPalabra(palabraOculta){
 
       let elemento='',
-          letras = palabraSecreta.split('');
+          letras = y.split('');
 
       letras.forEach((e)=> {
          if(palabraOculta.includes(e)){
