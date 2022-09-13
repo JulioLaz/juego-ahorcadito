@@ -24,9 +24,6 @@ function btnGetWord(){
    console.log("nueva listas: "+ y);
    console.log("nueva listas: "+ listas);
 
-   // let y=btnGetWord();
-// listas=newLista;
-
 function ingresoPalabra(){
    let inputPalabra = document.getElementById('palabraIngresada');
    let inputPalabraAdd = document.getElementById('palabraIngresadaAdd');
@@ -52,4 +49,3 @@ function ingresoPalabra(){
 }
 ingresoPalabra();
 
-console.log

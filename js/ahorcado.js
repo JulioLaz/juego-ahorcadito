@@ -14,14 +14,12 @@ document.getElementById('errores').innerHTML='😒: ';
       
 let soloLetras = /^[a-zA-Z]/;
 
-
-
-
-
+// if( )
 // console.log(newlista);
 console.log(listas);
-
-let palabraSecreta=listas[Math.round(Math.random())],
+let numeroRandom=Math.round(Math.random()*10);
+console.log(numeroRandom)
+let palabraSecreta=listas[numeroRandom],
     arrayPalabra= palabraSecreta.split(''),
     palabraOculta=arrayPalabra.map((l,i, arrayPalabra)=>{return l==arrayPalabra[i] ? '_ ' : l});
    
