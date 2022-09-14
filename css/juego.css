@@ -167,6 +167,7 @@ canvas{
 
    
 }
-.palabraAdd{
+#palabraAdd{
    width: 40vw;
+   font-size: calc(1rem + .8vw);
 }

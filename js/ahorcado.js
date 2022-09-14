@@ -16,13 +16,17 @@ let entrada = document.querySelector('.letra'),
     
    //  console.log(listas);
 
-function listasAdd(listas,yyy){
+function listasAdd(lsts){
       console.log('inicio0001');
+      console.log('listas: '+lsts);
       
-      let numeroAleatorio=Math.floor(Math.random()*listas.length);
-      let palabraSecreta=listas[numeroAleatorio];
+      let numeroAleatorio=Math.floor(Math.random()*lsts.length);
+      let palabraSecreta=lsts[numeroAleatorio];
       console.log('numero random: '+ numeroAleatorio);
-      console.log(listas);
+      console.log('tamaño lista: '+ lsts.length); 
+      console.log('palabraSecreta: '+ palabraSecreta); 
+      arrayWord(palabraSecreta);
+
       return palabraSecreta;
       
 }
@@ -31,12 +35,24 @@ function btnJugar(){
    ponerGuiones();
 
 }
-   yyy=listasAdd(listas)
-      arrayPalabra= yyy.split(''),
+   // yyy=listasAdd(listas);
+   function arrayWord(palabraSecreta){
+      arrayPalabra= palabraSecreta.split('');
+      console.log('arrayWord: '+ arrayPalabra);
+      wordHidden(arrayPalabra)
+      return arrayPalabra;
+   }
+   function wordHidden(arrayPalabra){
       palabraOculta=arrayPalabra.map((l,i, arrayPalabra)=>{return l==arrayPalabra[i] ? '_ ' : l});
+      console.log('palabraOculta:  '+palabraOculta);
+      // ponerGuiones();
+      verPalabra(palabraOculta);
+      return palabraOculta;
+
+   }
       document.getElementById('listaBanner').innerHTML= listas;
     
-    console.log('palabras secreta: '+ yyy);
+   //  console.log('palabras secreta: '+ yyy);
     
     
 function btnPalabraAdd(){
@@ -44,10 +60,12 @@ function btnPalabraAdd(){
 
    let palabraAdd = document.querySelector('#palabraAdd').value;
    listas.push(palabraAdd);
-   console.log(palabraAdd);
-   console.log('yyy:' + yyy);
+   console.log('palabra nueva: '+ palabraAdd);
+   console.log(listas);
+   // console.log('yyy:' + yyy);
    yyy=palabraAdd;
-   listasAdd(listas,yyy);
+   listasAdd(listas);
+
 }
 // ejecuta la funcion del boton comprobar con ENTER
 function ingresoCaracter(){
@@ -71,8 +89,11 @@ function ingresoCaracter(){
 
 function verPalabra(palabraOculta){
    console.log('inicio0004: verPalabra');
-
-      let elemento='',
+   console.log('inicio0004: palabraOculta'+palabraOculta);
+   // console.log('inicio0004: palabraOculta'+palabraOculta.split(''));
+      let yyy=palabraOculta;
+      console.log(yyy);
+      let elemento='';
           letras = yyy.split('');
 
       letras.forEach((e)=> {
@@ -189,7 +210,7 @@ function contadorIntentos(ltr){
 function ponerGuiones(){
    console.log('inicio0008');
 
-   verPalabra(palabraOculta);
+   // verPalabra();
    ingresoCaracter();
    vidas.value=5;
 }
