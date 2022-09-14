@@ -1,35 +1,58 @@
 //cursor en input entrada
-const btnEnfocar = document.querySelector('#comprobar'),
-	   $nombre = document.querySelector('#letra');
-      btnEnfocar.addEventListener('click', () => {$nombre.focus();});
+// const btnEnfocar = document.querySelector('#comprobar'),
+// 	   $nombre = document.querySelector('#letra');
+//       btnEnfocar.addEventListener('click', () => {$nombre.focus();});
 
 let entrada = document.querySelector('.letra'),
     info = document.querySelector('.info'),
     vidas = document.querySelector('#vida'),
     puntos = document.querySelector('#puntos');
-
+    
     info.value='Inicia con una letra!!!';//en el input #info
+    
+    document.getElementById('errores').innerHTML='😒: ';
+    
+    let soloLetras = /^[a-zA-Z]/;
+    
+   //  console.log(listas);
 
-document.getElementById('errores').innerHTML='😒: ';
+function listasAdd(listas,yyy){
+      console.log('inicio0001');
       
-let soloLetras = /^[a-zA-Z]/;
+      let numeroAleatorio=Math.floor(Math.random()*listas.length);
+      let palabraSecreta=listas[numeroAleatorio];
+      console.log('numero random: '+ numeroAleatorio);
+      console.log(listas);
+      return palabraSecreta;
+      
+}
 
+function btnJugar(){
+   ponerGuiones();
 
+}
+   yyy=listasAdd(listas)
+      arrayPalabra= yyy.split(''),
+      palabraOculta=arrayPalabra.map((l,i, arrayPalabra)=>{return l==arrayPalabra[i] ? '_ ' : l});
+      document.getElementById('listaBanner').innerHTML= listas;
+    
+    console.log('palabras secreta: '+ yyy);
+    
+    
+function btnPalabraAdd(){
+      console.log('inicio0002');
 
-
-
-// console.log(newlista);
-console.log(listas);
-
-let palabraSecreta=listas[Math.round(Math.random())],
-    arrayPalabra= palabraSecreta.split(''),
-    palabraOculta=arrayPalabra.map((l,i, arrayPalabra)=>{return l==arrayPalabra[i] ? '_ ' : l});
-   
-    console.log('palabras secreta: '+ palabraSecreta);
-
-document.getElementById('listaBanner').innerHTML= listas;
+   let palabraAdd = document.querySelector('#palabraAdd').value;
+   listas.push(palabraAdd);
+   console.log(palabraAdd);
+   console.log('yyy:' + yyy);
+   yyy=palabraAdd;
+   listasAdd(listas,yyy);
+}
 // ejecuta la funcion del boton comprobar con ENTER
 function ingresoCaracter(){
+   console.log('inicio0003');
+
          let elInput = document.getElementById('letra');
          elInput.addEventListener('keyup', e=> {
          dato = e.key;
@@ -47,9 +70,10 @@ function ingresoCaracter(){
    }
 
 function verPalabra(palabraOculta){
+   console.log('inicio0004: verPalabra');
 
       let elemento='',
-          letras = palabraSecreta.split('');
+          letras = yyy.split('');
 
       letras.forEach((e)=> {
          if(palabraOculta.includes(e)){
@@ -63,6 +87,7 @@ function verPalabra(palabraOculta){
    }
    
 function btnComprobar(){
+   console.log('inicio0005');
 
       let letra = document.querySelector('#letra').value,
           ltr;
@@ -88,8 +113,10 @@ let arrayErrores=[],
     a=0;//incrementador array de letras erradas
 
 function contadorFallos(ltr){
+   console.log('inicio0006: contarFallos');
 
    if(!(ltr==undefined)){
+      console.log(arrayPalabra);
       if(!arrayPalabra.includes(ltr)){
          arrayEntrada[a]=ltr;
 
@@ -130,6 +157,7 @@ function contadorFallos(ltr){
 
 
 function contadorIntentos(ltr){
+   console.log('inicio0007');
 
    let a1=palabraOculta.join(''),
    a2=arrayPalabra.join('');
@@ -159,10 +187,12 @@ function contadorIntentos(ltr){
 }
 
 function ponerGuiones(){
+   console.log('inicio0008');
+
    verPalabra(palabraOculta);
    ingresoCaracter();
    vidas.value=5;
 }
-ponerGuiones();
+// ponerGuiones();
 // }
 function refrescar(){window.location.reload()}

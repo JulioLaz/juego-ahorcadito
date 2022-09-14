@@ -17,7 +17,7 @@
 
    <main>
       <div class='infoBanner'>
-         <input type='text' name='juego' id='info' class='info ' readonly>
+         <input type='text' name='juego' id='info' class='info '>
       </div>
       <div class='letra-vida'>
          <div>
@@ -40,11 +40,13 @@
       <footer>
          <div class='botones'>
          <button id='comprobar' onclick='btnComprobar()' class='btnJuego'>COMPROBAR</button>
-         <button onclick='refrescar()' class='btnJuego'>NUEVO JUEGO</button>
+         <button onclick='btnJugar()' class='btnJuego'>JUGAR</button>
          <a class='nivel' href='index.html'><button class='btnJuego'>HOME</button></a>
-         <a class='nivel' href='word.html'><button class='btnJuego'>Agregar Palabra</button></a>
+         <a class='nivel' ><button class='btnJuego' onclick="btnPalabraAdd()">Agregar Palabra</button></a>
+         <input type="text" id="palabraAdd" class='palabraAdd' maxlength="10">
          </div>
          <canvas id='canvas' width='600' height='400'></canvas>
+
       </footer>
 
   <script src='js/lista.js'></script>

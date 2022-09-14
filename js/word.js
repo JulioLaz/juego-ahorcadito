@@ -6,26 +6,19 @@ function btnGetWord(){
    let word = document.querySelector('#palabraIngresada').value;
    listas.push(word);
 
-   console.log('word: '+ word + "  listas nueva: "+ listas);
-   ver();
+   console.log('word: '+ word + " +   nueva lista: "+ listas);
+   // ver();
    return listas;
   }
-   // console.log('newlista: '+ newLista+ "  listas: "+ listas);
-   // console.log('newlista: '+ver()+ "  listas: "+ listas);
-   // console.log('btnWord: '+btnGetWord()+ "  listas: "+ listas);
+   // let y=ver();
+   // function ver(){
+   //    newLista =   (listas.filter(el => el));
+   //    console.log("newista: "+ newLista);
+   //    return newLista;
+   // }
    
-   let y=ver();
-   function ver(){
-      newLista =   (listas.filter(el => el));
-      console.log("newista: "+ newLista);
-      return newLista;
-   }
-   
-   console.log("nueva listas: "+ y);
+   // console.log("nueva listas: "+ y);
    console.log("nueva listas: "+ listas);
-
-   // let y=btnGetWord();
-// listas=newLista;
 
 function ingresoPalabra(){
    let inputPalabra = document.getElementById('palabraIngresada');
