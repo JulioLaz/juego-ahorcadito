@@ -1,6 +1,6 @@
 //cursor en input entrada
 // const btnEnfocar = document.querySelector('#comprobar'),
-// 	   $nombre = document.querySelector('#letra');
+//       $nombre = document.querySelector('#letra');
 //       btnEnfocar.addEventListener('click', () => {$nombre.focus();});
 
 let entrada = document.querySelector('.letra'),
@@ -26,19 +26,19 @@ function listasAdd(lsts){
       console.log('tamaño lista: '+ lsts.length); 
       console.log('palabraSecreta: '+ palabraSecreta); 
       arrayWord(palabraSecreta);
-      secreta(palabraSecreta);
+      // secreta(palabraSecreta);
       return palabraSecreta;
 }
-function secreta(palabraSecreta){
-   btnComprobar(palabraSecreta);
-   console.log('btn comporobar:  '+palabraSecreta)
-   return palabraSecreta
-}
+// function secreta(palabraSecreta){
+//    btnComprobar(palabraSecreta);
+//    console.log('btn comporobar:  '+palabraSecreta)
+//    return palabraSecreta
+// }
 
-function btnJugar(){
-   ponerGuiones();
+// function btnJugar(){
+//    ponerGuiones();
 
-}
+// }
    // yyy=listasAdd(listas);
    function arrayWord(palabraSecreta){
       arrayPalabra= palabraSecreta.split('');
@@ -68,7 +68,7 @@ function btnPalabraAdd(){
    console.log('palabra nueva: '+ palabraAdd);
    console.log(listas);
    // console.log('yyy:' + yyy);
-   yyy=palabraAdd;
+   // yyy=palabraAdd;
    listasAdd(listas);
    ponerGuiones();
 
@@ -93,12 +93,16 @@ function ingresoCaracter(){
          });
    }
 
-// function verPalabra(palabraOculta,palabraSecreta){
+// verPalabra();
 function verPalabra(palabraSecreta){
    console.log('inicio0004: palabraOculta: '+palabraOculta);
    console.log('inicio0004: palabraSecreta: '+palabraSecreta);
+   console.log('inicio0004: arrayPalabra: '+arrayPalabra.join(''));
    // console.log('inicio0004: palabraOculta'+palabraOculta.split(''));
-
+newArrayPalabra=arrayPalabra.join('');
+   if(palabraSecreta==undefined){
+   palabraSecreta=newArrayPalabra.toString();
+}
       let elemento='',
           letras = palabraSecreta.split('');
 
@@ -114,7 +118,7 @@ function verPalabra(palabraSecreta){
    }
    
 function btnComprobar(palabraSecreta){
-   console.log('inicio0005');
+   console.log('inicio0005: btnComprobar');
    console.log(' palabraSecreta: '+palabraSecreta);
 
    console.log('arrayPalabra: '+arrayPalabra);
@@ -131,6 +135,7 @@ function btnComprobar(palabraSecreta){
             if(ltr==arrayPalabra[i]&&ltr.match(soloLetras)&&!((ltr=== ' ')||(ltr=== ''))){
                palabraOculta[i]=ltr;
                entrada.value='';
+               console.log("palabra oculta/caracter: "+palabraOculta)
             }
          }
       }
