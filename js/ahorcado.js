@@ -1,8 +1,9 @@
-//cursor en input entrada
+// cursor en input entrada
 // const btnEnfocar = document.querySelector('#comprobar'),
 //       $nombre = document.querySelector('#letra');
 //       btnEnfocar.addEventListener('click', () => {$nombre.focus();});
 
+let soloLetras = /^[a-zA-Z]/;
 let entrada = document.querySelector('.letra'),
     info = document.querySelector('.info'),
     vidas = document.querySelector('#vida'),
@@ -11,21 +12,18 @@ let entrada = document.querySelector('.letra'),
     info.value='Inicia con una letra!!!';//en el input #info
     document.getElementById('errores').innerHTML='😒: ';
     
-    let soloLetras = /^[a-zA-Z]/;
-    vidas.value=5;
-
 function listasAdd(lsts){
+   console.log('inicio0001');
+
       let numeroAleatorio=Math.floor(Math.random()*lsts.length);
       let palabraSecreta=lsts[numeroAleatorio];
       arrayWord(palabraSecreta);
       return palabraSecreta;
 }
 
-function btnJugar(){
- btnPalabraAdd()
-}
-
 function arrayWord(palabraSecreta){
+   console.log('inicio0002');
+
       arrayPalabra= palabraSecreta.split('');
       console.log('arrayWord: '+ arrayPalabra);
       wordHidden(arrayPalabra,palabraSecreta)
@@ -33,29 +31,64 @@ function arrayWord(palabraSecreta){
    }
 
 function wordHidden(arrayPalabra,palabraSecreta){
+   console.log('inicio0003');
+
       palabraOculta=arrayPalabra.map((l,i, arrayPalabra)=>{return l==arrayPalabra[i] ? '_ ' : l});
       console.log('palabraOculta:  '+palabraOculta);
-      // ponerGuiones();
+      // jugar();
       verPalabra(palabraSecreta);
       // verPalabra();
       return palabraOculta;
-
-   }
+}
       document.getElementById('listaBanner').innerHTML= listas;
     
 function btnPalabraAdd(){
+   console.log('inicio0004');
 
    let palabraAdd = document.querySelector('#palabraAdd').value;
-   listas.push(palabraAdd);
-   console.log('palabra nueva: '+ palabraAdd);
-   document.getElementById('errores').innerHTML='😒: ';
-   listasAdd(listas);
-   ponerGuiones();
 
+      listas.push(palabraAdd);
+      listaSinVacios= listas.filter((item) => item !== '')
+      console.log('listas add: '+ listaSinVacios);
+      console.log('listas add.lengt: '+ listaSinVacios.length);
+      console.log('palabra nueva: '+ palabraAdd);
+      document.getElementById('errores').innerHTML='😒: ';
+      listasAdd(listaSinVacios);
+      ingresoCaracter();
+      vidas.value=5;
+      vida=5;
+      palabraAdd.value="";
+   
 }
+
+function ingresoPalabra(){
+   console.log('inicio0005');
+   
+   let inputPalabra = document.getElementById('palabraAdd');
+   // let inputPalabraAdd = document.getElementById('palabraIngresadaAdd');
+   let arrayInput=[];
+   inputPalabra.addEventListener('keyup', e=> {
+   dato = e.key;
+   keycode = e.keyCode;
+      if (dato.match(soloLetras)){
+         if ((keycode === 13)){
+            btnPalabraAdd();
+            document.getElementById('info').innerHTML=inputPalabra.value;
+            arrayInput.push(inputPalabra.value);
+            // inputPalabraAdd.value=arrayInput;
+            inputPalabra.value="";
+         }
+      }else{
+         alert('Caracter no válido!!!');
+         inputPalabra.value="";
+      }
+   });
+}
+ingresoPalabra();
+
 // ejecuta la funcion del boton comprobar con ENTER
 function ingresoCaracter(){
-   console.log('inicio0003');
+   console.log('inicio0006');
 
          let elInput = document.getElementById('letra');
          elInput.addEventListener('keyup', e=> {
@@ -71,12 +104,11 @@ function ingresoCaracter(){
                entrada.value=''}, 500);
             }
          });
-   }
+}
 
-// verPalabra();
 function verPalabra(palabraSecreta){
-   // console.log('inicio0004: palabraOculta: '+palabraOculta);
-   console.log('inicio0004: palabraSecreta: '+palabraSecreta);
+   console.log('inicio0007: palabraOculta: '+palabraOculta);
+   console.log('inicio0007: palabraSecreta: '+palabraSecreta);
    // console.log('inicio0004: arrayPalabra: '+arrayPalabra.join(''));
    // console.log('inicio0004: palabraOculta'+palabraOculta.split(''));
 newArrayPalabra=arrayPalabra.join('');
@@ -98,7 +130,7 @@ newArrayPalabra=arrayPalabra.join('');
    }
    
 function btnComprobar(palabraSecreta){
-   // console.log('inicio0005: btnComprobar');
+   console.log('inicio0008: btnComprobar');
    // console.log(' palabraSecreta: '+palabraSecreta);
 
    // console.log('arrayPalabra: '+arrayPalabra);
@@ -125,13 +157,11 @@ function btnComprobar(palabraSecreta){
       verPalabra(palabraSecreta);
 }
 
-let arrayErrores=[],
-    arrayEntrada=[],
-    vida=5;
+let arrayErrores=[],arrayEntrada=[],vida=5;
     a=0;//incrementador array de letras erradas
 
 function contadorFallos(ltr){
-   console.log('inicio0006: contarFallos');
+   console.log('inicio0009: contarFallos');
 
    if(!(ltr==undefined)){
       console.log(arrayPalabra);
@@ -141,7 +171,7 @@ function contadorFallos(ltr){
          let arrayErrores = arrayEntrada.filter((item,index)=>{
              return arrayEntrada.indexOf(item) === index}),
              veces=vida-arrayErrores.length;
-             a=a+1;
+             a++;
 
          document.getElementById('errores').innerHTML='😫: '+arrayErrores;
          info.value= 'erraste: quedan '+ veces + ' intentos';
@@ -166,8 +196,11 @@ function contadorFallos(ltr){
              document.getElementById('errores').innerHTML= "<img src=img/pinguinotriste.gif>";
              setTimeout(function(){
              alert('!!!PERDISTE!!!');
-             btnPalabraAdd();
+             arrayErrores=[],arrayEntrada=[],vida=5;
              info.value='JUEGA OTRA VEZ';
+             canvas.width=canvas.width;
+             patibulo();
+             btnJugar();
             }, 500);
          }
       }
@@ -178,7 +211,7 @@ function contadorFallos(ltr){
 
 
 function contadorIntentos(ltr){
-   console.log('inicio0007');
+   console.log('inicio00010');
 
    let a1=palabraOculta.join(''),
    a2=arrayPalabra.join('');
@@ -203,8 +236,11 @@ function contadorIntentos(ltr){
                document.getElementById('errores').innerHTML= "";
                
             }, 1000);
+            arrayErrores=[],arrayEntrada=[],vida=5;
             setTimeout(function(){
-               btnJugar();               
+               canvas.width=canvas.width;
+               patibulo();
+               btnJugar();
             }, 1000);
             
          }else{
@@ -213,9 +249,16 @@ function contadorIntentos(ltr){
       }
 }
 
-function ponerGuiones(){
-   console.log('inicio0008');
+
+
+function btnJugar(){
+   console.log('inicio00012');
+   btnPalabraAdd()
+   console.log('inicio00011');
    ingresoCaracter();
+   vidas.value=5;
+   vida=5;
 }
-function refrescar(){window.location.reload()}
 btnJugar();
+
+function refrescar(){window.location.reload()}

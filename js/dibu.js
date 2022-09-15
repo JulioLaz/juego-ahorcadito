@@ -248,7 +248,7 @@ ctx.stroke();
 
 //tapar muerte
 ctx.fillStyle = 'bisque';
-ctx.fillRect(420,50,200,400);
+ctx.fillRect(420,20,200,400);
 ctx.stroke();
 
 //taburete

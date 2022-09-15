@@ -5,19 +5,9 @@ function btnGetWord(){
     
    let word = document.querySelector('#palabraIngresada').value;
    listas.push(word);
-
    console.log('word: '+ word + " +   nueva lista: "+ listas);
-   // ver();
    return listas;
   }
-   // let y=ver();
-   // function ver(){
-   //    newLista =   (listas.filter(el => el));
-   //    console.log("newista: "+ newLista);
-   //    return newLista;
-   // }
-   
-   // console.log("nueva listas: "+ y);
    console.log("nueva listas: "+ listas);
 
 function ingresoPalabra(){
@@ -38,8 +28,6 @@ function ingresoPalabra(){
       }else{
          alert('Caracter no válido!!!');
          inputPalabra.value="";
-         // setTimeout(function(){
-         // entrada.value=''}, 500);
       }
    });
 }
