@@ -9,8 +9,8 @@ let entrada = document.querySelector('.letra'),
     vidas = document.querySelector('#vida'),
     puntos = document.querySelector('#puntos');
     
-    info.value='Inicia con una letra!!!';//en el input #info
-    document.getElementById('errores').innerHTML='😒: ';
+    info.value='Ingresar una Letra!!!';//en el input #info
+    document.getElementById('errores').innerHTML='🤩: ';
     
 function listasAdd(lsts){
    console.log('inicio0001');
@@ -45,19 +45,19 @@ function wordHidden(arrayPalabra,palabraSecreta){
 function btnPalabraAdd(){
    console.log('inicio0004');
 
-   let palabraAdd = document.querySelector('#palabraAdd').value;
+   let palabraAdd = document.querySelector('#palabraAdd');
 
-      listas.push(palabraAdd);
+      listas.push(palabraAdd.value);
       listaSinVacios= listas.filter((item) => item !== '')
       console.log('listas add: '+ listaSinVacios);
       console.log('listas add.lengt: '+ listaSinVacios.length);
       console.log('palabra nueva: '+ palabraAdd);
-      document.getElementById('errores').innerHTML='😒: ';
+      document.getElementById('errores').innerHTML='🤩: ';
+      palabraAdd.value="";
       listasAdd(listaSinVacios);
       ingresoCaracter();
       vidas.value=5;
       vida=5;
-      palabraAdd.value="";
    
 }
 
@@ -174,7 +174,7 @@ function contadorFallos(ltr){
              a++;
 
          document.getElementById('errores').innerHTML='😫: '+arrayErrores;
-         info.value= 'erraste: quedan '+ veces + ' intentos';
+         info.value= 'Te quedan '+ veces + ' intentos';
          vidas.value=veces
          if(veces===(vida-1)){
             caja(true);
@@ -195,7 +195,7 @@ function contadorFallos(ltr){
              info.value='PERDISTE';
              document.getElementById('errores').innerHTML= "<img src=img/pinguinotriste.gif>";
              setTimeout(function(){
-             alert('!!!PERDISTE!!!');
+             alert('!!!PERDISTE!!!'+arrayPalabra);
              arrayErrores=[],arrayEntrada=[],vida=5;
              info.value='JUEGA OTRA VEZ';
              canvas.width=canvas.width;
@@ -258,6 +258,8 @@ function btnJugar(){
    ingresoCaracter();
    vidas.value=5;
    vida=5;
+   info.value='JUGAR OTRA VEZ';
+
 }
 btnJugar();
 

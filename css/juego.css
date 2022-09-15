@@ -26,7 +26,7 @@ marquee.lista{
    background-color: rgba(113, 91, 64, 0.651);
    color: rgb(230, 250, 19);
    width: 100%;
-   height: 4rem;
+   height: 3rem;
    margin: 0;
    border: 2px solid burlywood;
    font-size: calc(1.5rem + .8vw);
@@ -46,14 +46,14 @@ input{
    margin: 1rem 0;
 }
 div .letra{
-   width: 40vw;
+   width: 20vw;
    text-decoration: blink;
    cursor: pointer;
-   font-size: 3rem;
+   font-size: 2.5rem;
 
 }
 div .vida{
-   width: 10vw;
+   width: 20vw;
    outline: none;
 
 }
@@ -63,7 +63,7 @@ div .puntos{
 }
 
 div .formato-input{
-   height: 4rem;
+   height: 3.5rem;
    border-radius: 1rem;
    box-shadow: 8px 8px 10px 3px rgba(0, 0, 0, 0.4);
    background-color: rgba(198, 163, 121, 0.651);
@@ -71,6 +71,7 @@ div .formato-input{
    font-weight: bold;
    border: 1px solid black;
    margin-top: 5px;
+   padding-bottom: 5px;
 }
 
 .letraI{
@@ -110,10 +111,17 @@ div .formato-input{
    justify-content: center;
    align-items: center;
    width: 20vw;
-   height: 6rem;
+   height: 10.5vh;
    font-size: calc(1rem + 2vw);
    
 }
+.cajaInput{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin: 0;
+}
+
 .hidden {
    display: flex;
    justify-content: center;
@@ -168,6 +176,32 @@ canvas{
    
 }
 #palabraAdd{
-   width: 40vw;
+   width: 14vw;
+   height: 5vh;
+   border-radius: .5rem;
    font-size: calc(1rem + .8vw);
+   border: 1px solid black;
+}
+.btnpalabraAdd{
+   width: 14vw;
+   height: 5vh;
+}
+.cajaAddPalabra{
+   display: flex;
+}
+
+@keyframes pulso{
+0%{
+   transform: scale(1.1);
+}
+50%{
+   transform: scale(.8);
+}
+100%{
+   transform: scale(1.1);
+}
+}
+.pulso{
+   /* font-size: 1rem; */
+   animation: pulso 1s linear infinite;
 }

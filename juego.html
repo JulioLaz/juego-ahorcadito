@@ -24,34 +24,38 @@
       </div>
       <div class='letra-vida'>
          <div>
-            <label for='juego'>JUGATE X UNA LETRA</label>
+            <label for='juego'>INGRESAR</label>
             <input type='text' name='juego' id='letra' placeholder='_' class='letra formato-input' maxlength='1' autofocus>
+         </div>
+         <div class='letraIngresada' >
+            <div class='letraI errores' id='errores'></div>
          </div>
          <div class=''>
             <label for='vida'>VIDAS</label>
             <input type='text' name='vida' id='vida' class='vida animated formato-input' value='SinOutLine' readonly>
          </div>
-         <div class='letraIngresada' >
-            <div class='letraI errores' id='errores'></div>
-         </div>
       </div>
-         <div class='letraIngresada' >
-            <div class='letraI monitos' id='letraI'></div>
-         </div>
-      </main>
-
-      <footer>
-         <div class='botones'>
+      <div class='letraIngresada' >
+         <div class='letraI monitos' id='letraI'></div>
+      </div>
+   </main>
+   
+   <footer>
+      <div class='botones'>
          <button id='comprobar' onclick='btnComprobar()' class='btnJuego'>COMPROBAR</button>
-         <button onclick='btnJugar()' class='btnJuego'>JUGAR</button>
-         <a class='nivel' href='index.html'><button class='btnJuego'>HOME</button></a>
-         <a class='nivel' ><button class='btnJuego' onclick="btnPalabraAdd()">Agregar Palabra</button></a>
-         <div>
-            <input type="text" id="palabraAdd" maxlength="7" class='letra formato-input palabraAdd' placeholder="agrega tu palabra">
-         </div>
-         </div>
-         <canvas id='canvas' width='600' height='400'></canvas>
+         <button onclick='btnJugar()' class='btnJuego'>NUEVO JUEGO </button>
+         <label for='texto'>Ingresa nueva palabra</label>
+            <div class="cajaAddPalabra">
 
+            <input type="texto" id="palabraAdd" maxlength="7" class='palabraAdd' placeholder="Ingresar">
+            <button class=' btnJuego btnpalabraAdd ' onclick="btnPalabraAdd()">Agregar</button>
+            </div>
+            <div class="cajaInput">
+               <a class='nivel' href='index.html'><button class='btnJuego'>HOME</button></a>
+            </div>
+         </div>
+            <canvas id='canvas' width='600' height='400'></canvas>
+         
       </footer>
 
   <script src='js/lista.js'></script>
