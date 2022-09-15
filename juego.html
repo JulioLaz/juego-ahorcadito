@@ -14,8 +14,9 @@
 <body>
 
    <header>
-      <marquee behavior='alternate' scrollamount='10' style='height: 40px'><h1>JUEGO DEL AHORCADITO</h1></MARQUEE>
-      <marquee loop="1" class='lista' style='height:30px'  scrollamount='20'><p id="listaBanner"></p></MARQUEE>
+      <div class="titulo">
+         <h1 class="h1 pulso">JUEGO DEL AHORCADITO</h1>
+      </div>
    </header>
 
    <main>
@@ -44,15 +45,20 @@
       <div class='botones'>
          <button id='comprobar' onclick='btnComprobar()' class='btnJuego'>COMPROBAR</button>
          <button onclick='btnJugar()' class='btnJuego'>NUEVO JUEGO </button>
-         <label for='texto'>Ingresa nueva palabra</label>
+         <label for='texto' class="labelAdd">Ingresa nueva palabra hasta siete letras</label>
             <div class="cajaAddPalabra">
-
             <input type="texto" id="palabraAdd" maxlength="7" class='palabraAdd' placeholder="Ingresar">
             <button class=' btnJuego btnpalabraAdd ' onclick="btnPalabraAdd()">Agregar</button>
             </div>
             <div class="cajaInput">
                <a class='nivel' href='index.html'><button class='btnJuego'>HOME</button></a>
             </div>
+            <label for='textos' class="labelAdd">Ayuda: pertenece a este genero</label>
+            <div class="cajaAddPalabra">
+            <input type="textos" id="helpWord" class='palabraAdd' readonly>
+            <button class=' btnJuego btnpalabraAdd ' onclick="btnhelpWord()">Ayuda</button>
+            </div>
+
          </div>
             <canvas id='canvas' width='600' height='400'></canvas>
          

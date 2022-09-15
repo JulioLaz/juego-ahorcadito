@@ -6,8 +6,8 @@
 let soloLetras = /^[a-zA-Z]/;
 let entrada = document.querySelector('.letra'),
     info = document.querySelector('.info'),
-    vidas = document.querySelector('#vida'),
-    puntos = document.querySelector('#puntos');
+    vidas = document.querySelector('#vida');
+   //  help = document.querySelector('#helpWord');
     
     info.value='Ingresar una Letra!!!';//en el input #info
     document.getElementById('errores').innerHTML='🤩: ';
@@ -17,10 +17,34 @@ function listasAdd(lsts){
 
       let numeroAleatorio=Math.floor(Math.random()*lsts.length);
       let palabraSecreta=lsts[numeroAleatorio];
+     palabrita= palabraSecreta.toLowerCase();
+     palabraSecreta=palabrita;
+      console.log('toLowerCase: '+palabrita+palabraSecreta)
       arrayWord(palabraSecreta);
+      helpWordAdd(palabraSecreta)
       return palabraSecreta;
+   }
+   function btnhelpWord(){
+   helpWordAdd(palabraSecreta)
+
+}
+function helpWordAdd(palabraSecreta){
+console.log(palabraSecreta);
+if (listasNumeros.includes(palabraSecreta)){
+   document.getElementById('helpWord').innerHTML='NUMEROS😘';
+   console.log(palabraSecreta);
+}
+   if (listasFrutas.includes(palabraSecreta)){
+      document.getElementById('helpWord').innerHTML='FRUTAS😒';
+      console.log(palabraSecreta);
+}
+   if (listasMeses.includes(palabraSecreta)){
+      document.getElementById('helpWord').innerHTML='MESES😕';
+      console.log(palabraSecreta);
 }
 
+
+}
 function arrayWord(palabraSecreta){
    console.log('inicio0002');
 
@@ -40,7 +64,6 @@ function wordHidden(arrayPalabra,palabraSecreta){
       // verPalabra();
       return palabraOculta;
 }
-      document.getElementById('listaBanner').innerHTML= listas;
     
 function btnPalabraAdd(){
    console.log('inicio0004');
@@ -60,12 +83,15 @@ function btnPalabraAdd(){
       vida=5;
    
 }
-
+//verificacion de caracteres
 function ingresoPalabra(){
+
    console.log('inicio0005');
    
    let inputPalabra = document.getElementById('palabraAdd');
-   // let inputPalabraAdd = document.getElementById('palabraIngresadaAdd');
+   // let nuevoInputPalabra=inputPalabra;
+   // inputPalabra.value.toLowerCase();
+   // console.log(nuevoInputPalabra.value)
    let arrayInput=[];
    inputPalabra.addEventListener('keyup', e=> {
    dato = e.key;
@@ -79,7 +105,7 @@ function ingresoPalabra(){
             inputPalabra.value="";
          }
       }else{
-         alert('Caracter no válido!!!');
+         alert('Caracter no válido -SOLO LETRAS MINÚSCULAS!!!');
          inputPalabra.value="";
       }
    });

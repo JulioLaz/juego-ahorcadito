@@ -2,25 +2,26 @@ html{
    background-color: rgba(198, 163, 121, 0.651);
    
 }
-header{
-   width: 100vw;
+::placeholder{
+   font-size: calc(.7rem + .8vw);
 }
-marquee{
+.titulo{
    display: flex;
-   justify-content: space-between;
+   justify-content: center;
    align-items: center;
-   height: 8vh;
-   align-items: center;
-   text-align: center;
-   font-size: calc(.8rem + 1vw);
-   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-   margin:0 25vw;
-   color:darkslategrey;
+   height: 10vh;
 }
-marquee.lista{
-   font-size: calc(.7rem + 1vw);
-   color: brown;
-   margin:0 8vw;
+h1{
+   display: flex;
+   align-items: center;
+text-align: center;
+   height: 6vh;
+    font-size: calc(1.5rem + 1vw);
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   /* margin-top:1rem;
+   padding: .5rem; */
+   color:darkslategrey;
+
 }
 .info{
    background-color: rgba(113, 91, 64, 0.651);
@@ -140,27 +141,26 @@ footer{
    justify-content: center;
 }
 canvas{
-   width: 30vw;
-   height: auto;
+   width: 55vw;
+   height: 45vh;
    background-color: bisque;
    border: 1px solid black;
    border-radius: 2rem;
    padding:1rem;
    box-shadow: 0px 0px 15px 10px rgba(0, 0, 0, 0.4);
-
 }
 
 .botones{
    flex-direction: column;
    display: flex;
-   margin: 1rem 1rem;
+   margin: .5rem .5rem;
 }
 .btnJuego{
    display: inline-block;
    font-size: calc(.6rem + .8vw);
-   width: 29vw;
+   width: 37vw;
    height: 2.5rem;
-   margin: 1rem;
+   margin: .5rem 0;
    border: 1px solid white;
 
    background-color:rgb(162, 121, 17);
@@ -169,39 +169,51 @@ canvas{
    box-shadow: -5px 0px 15px 3px rgba(0, 0, 0, 0.4);
 }
 .btnJuego:hover{
-   font-size: calc(.7rem + .8vw);
+   font-size: calc(.8rem + .8vw);
    background-color:rgba(162, 121, 17,.5);
    color: bisque;
 
    
 }
-#palabraAdd{
-   width: 14vw;
-   height: 5vh;
+.labelAdd{
+   font-size: calc(.5rem + .6vw);
+   font-family: 'Courier New', Courier, monospace;
+   text-align: center;
+}
+
+
+.palabraAdd{
+   width: 18vw;
+   height: 4.5vh;
    border-radius: .5rem;
-   font-size: calc(1rem + .8vw);
+   font-size: calc(.8rem + .8vw);
    border: 1px solid black;
+   margin-right: .5rem;
+   
 }
 .btnpalabraAdd{
-   width: 14vw;
+   width: 16vw;
    height: 5vh;
+   /* margin: 0; */
 }
 .cajaAddPalabra{
    display: flex;
+   justify-content: center;
+   align-items: center;
 }
 
 @keyframes pulso{
 0%{
-   transform: scale(1.1);
+   transform: scale(1.2);
 }
 50%{
    transform: scale(.8);
 }
 100%{
-   transform: scale(1.1);
+   transform: scale(1.2);
 }
 }
 .pulso{
    /* font-size: 1rem; */
-   animation: pulso 1s linear infinite;
+   animation: pulso 1.1s linear infinite;
 }
