@@ -6,18 +6,25 @@ let entrada = document.querySelector('.letra'),
     document.getElementById('helpWord').innerHTML='NUMEROS😘';
     document.getElementById('errores').innerHTML='🤩: ';
     info.value='Ingresar una Letra!!!';//en el input #info
-    
+
+    const audioInicioJuego = new Audio(`sonidos/inicioJuego.mp3`)
+    const audioAcierto = new Audio(`sonidos/acierto.mp3`)
+    const audioFinalPerdido = new Audio(`sonidos/finalPerdido.mp3`)
+    const audioEnter = new Audio(`sonidos/ingresoLetra.mp3`)
+    const audioPerderVida = new Audio(`sonidos/perderVida.mp3`)
+    const audioVictoria = new Audio(`sonidos/victoria.mp3`)
+
 function listasAdd(lsts){
       let numeroAleatorio=Math.floor(Math.random()*lsts.length);
       let palabraSecreta=lsts[numeroAleatorio];
      palabrita= palabraSecreta.toLowerCase();
      palabraSecreta=palabrita;
-      console.log('toLowerCase: '+palabrita+palabraSecreta)
       arrayWord(palabraSecreta);
       helpWordAdd(palabraSecreta)
       return palabraSecreta;
    }
 function btnhelpWord(){
+   audioEnter.play();
    document.querySelector("#helpWord").style.width = "20vw";
    document.querySelector("#helpWord").style.height = "4.3vh";
    document.querySelector("#helpWord").style.border = "1px solid black";
@@ -40,13 +47,13 @@ function arrayWord(palabraSecreta){
 
 function wordHidden(arrayPalabra,palabraSecreta){
       palabraOculta=arrayPalabra.map((l,i, arrayPalabra)=>{return l==arrayPalabra[i] ? '_ ' : l});
-      console.log('palabraOculta:  '+palabraOculta);
       verPalabra(palabraSecreta);
       return palabraOculta;
 }
     
 function btnPalabraAdd(){
-   let palabraAdd = document.querySelector('#palabraAdd');
+      audioEnter.play();
+      let palabraAdd = document.querySelector('#palabraAdd');
       listas.push(palabraAdd.value);
       listaSinVacios= listas.filter((item) => item !== '')
       document.getElementById('errores').innerHTML='😁';
@@ -108,6 +115,7 @@ function verPalabra(palabraSecreta){
       letras.forEach((e)=> {
          if(palabraOculta.includes(e)){
             elemento += `<div class='hidden'>${e}</div>`;
+            audioAcierto.play();
          }
          else{
             elemento += `<div class='hidden'>🙈</div>`;
@@ -127,13 +135,11 @@ function btnComprobar(palabraSecreta){
             if(ltr==arrayPalabra[i]&&ltr.match(soloLetras)&&!((ltr=== ' ')||(ltr=== ''))){
                palabraOculta[i]=ltr;
                entrada.value='';
-               console.log("palabra oculta/caracter: "+palabraOculta)
             }
          }
       }
       contadorFallos(ltr);
       contadorIntentos(ltr);
-      console.log(' palabraSecreta: '+palabraSecreta);
       verPalabra(palabraSecreta);
 }
 
@@ -142,7 +148,7 @@ let arrayErrores=[],arrayEntrada=[],vida=5;
 
 function contadorFallos(ltr){
    if(!(ltr==undefined)){
-      console.log(arrayPalabra);
+      // console.log(arrayPalabra);
       if(!arrayPalabra.includes(ltr)){
          arrayEntrada[a]=ltr;
 
@@ -151,7 +157,8 @@ function contadorFallos(ltr){
              vidasGit=[],
              veces=vida-arrayErrores.length;
              a++;
-
+         
+         audioPerderVida.play();
          document.getElementById('errores').innerHTML='😫: '+arrayErrores;
          info.value= 'Te quedan '+ veces + ' intentos';
          for(let i=1;i<=veces;i++){
@@ -175,6 +182,7 @@ function contadorFallos(ltr){
             vidas.value="💀"
             personaDeath();
             caja(false);
+            audioFinalPerdido.play();
              info.value='JUEGA OTRA VEZ - PALABRA OCULTA: '+arrayPalabra.join('');
              document.getElementById('errores').innerHTML= "<img src=img/pinguinotriste.gif>";
              setTimeout(function(){
@@ -208,6 +216,7 @@ function contadorIntentos(ltr){
          if(comparacionArrayEntradaSalida(a1,a2)){
             document.getElementById('errores').innerHTML= "<img src=img/pinguino.gif>";
             ganaste();
+            audioVictoria.play();
             info.value='-----GANASTE-----';
             setTimeout(function(){
                alert('!!!GANASTE!!!');
@@ -223,12 +232,13 @@ function contadorIntentos(ltr){
             }, 1000);
             
          }else{
-            info.value= 'Ingesa otra letra';
+            info.value= 'Ingresa otra letra';
          }
       }
 }
 
 function btnJugar(){
+    audioInicioJuego.play();
    btnPalabraAdd()
    ingresoCaracter();
    vidas.value='😊😊😊😊😊';
@@ -245,4 +255,8 @@ function deleteHelp(){
    document.querySelector("#helpWord").style.background = "none";
 }
 
-function btnRefrescar(){window.location.reload()}
+function btnRefrescar(){
+   audioEnter.play();
+   window.location.reload()
+}
+

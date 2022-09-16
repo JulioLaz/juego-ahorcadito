@@ -15,7 +15,7 @@
 
    <header>
       <div class="titulo">
-         <h1 class="h1 pulso">JUEGO DEL AHORCADITO</h1>
+         <h1 class="h1 pulso">JUEGO DEL <strong>AHORCADITO</strong> </h1>
       </div>
    </header>
 
@@ -26,7 +26,7 @@
       <div class='letra-vida'>
          <div>
             <label for='juego'>INGRESAR</label>
-            <input type='text' name='juego' id='letra' placeholder='_' class='letra formato-input' maxlength='1' autofocus>
+            <input type='text' name='juego' id='letra' placeholder='_' class='letra formato-input' maxlength='1' autofocus checked>
          </div>
          <div class='letraIngresada' >
             <div class='letraI errores' id='errores'></div>
@@ -56,7 +56,7 @@
                <button class=' btnJuego btnpalabraAdd ' onclick="btnhelpWord()">Ayuda</button>
             </div>
             <div class="cajaInput">
-               <a class='nivel' href='index.html'><button class='btnJuego btnHomeReset btnHome'>HOME</button></a>
+               <a class='nivel' href='index.html'><button class='btnJuego btnHomeReset btnHome' onclick="btnHome()">HOME</button></a>
                <button class='btnJuego btnHomeReset' onclick="btnRefrescar()">RESET</button>
             </div>
       </div>
