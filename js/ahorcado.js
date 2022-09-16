@@ -28,6 +28,8 @@ function helpWordAdd(palabraSecreta){
    if (listasNumeros.includes(palabraSecreta)){help.value='NUMEROS'}
    if (listasFrutas.includes(palabraSecreta)){help.value='FRUTAS'}
    if (listasMeses.includes(palabraSecreta)){help.value='MESES'}
+   if (!(listasNumeros.includes(palabraSecreta))&&!(listasFrutas.includes(palabraSecreta))&&!(listasMeses.includes(palabraSecreta)))
+   {help.value='Es tu palabra'}
 }
 
 function arrayWord(palabraSecreta){
@@ -51,7 +53,8 @@ function btnPalabraAdd(){
       palabraAdd.value="";
       listasAdd(listaSinVacios);
       ingresoCaracter();
-      vidas.value=5;
+      deleteHelp()
+      vidas.value='😊😊😊😊😊';
       vida=5;
 }
 //verificacion de caracteres
@@ -208,7 +211,7 @@ function contadorIntentos(ltr){
             info.value='-----GANASTE-----';
             setTimeout(function(){
                alert('!!!GANASTE!!!');
-               info.value='JUEGA OTRA VEZ';
+               info.value='JUGAR OTRA VEZ';
                document.getElementById('errores').innerHTML= "";
                
             }, 1000);
@@ -230,12 +233,16 @@ function btnJugar(){
    ingresoCaracter();
    vidas.value='😊😊😊😊😊';
    vida=5;
-   info.value='JUGAR OTRA VEZ';
+   info.value='JUGAR: INGRESA UNA LETRA';
+   deleteHelp()
+}
+btnJugar();
+
+function deleteHelp(){
    document.querySelector("#helpWord").style.width = "0vw";
    document.querySelector("#helpWord").style.height = "0vh";
    document.querySelector("#helpWord").style.border = "none";
    document.querySelector("#helpWord").style.background = "none";
 }
-btnJugar();
 
 function btnRefrescar(){window.location.reload()}

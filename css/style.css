@@ -6,7 +6,6 @@ header{
    width: 100vw;
 }
 marquee{
-
    display: flex;
    justify-content: space-between;
    align-items: center;
@@ -29,36 +28,6 @@ marquee{
    font-family:Verdana, Geneva, Tahoma, sans-serif;
    color:rgb(8, 59, 110);
    font-weight: 900;
-}
-.info{
-   background-color: rgba(113, 91, 64, 0.651);
-   color: rgb(230, 250, 19);
-   width: 100%;
-   height: 4rem;
-   margin: 0;
-   border: none;
-   font-size: calc(1.5rem + .8vw);
-}
-
-input{
-   text-align: center;
-   font-size: 1.5rem;
-   display: flex;
-   margin: 1rem;
-   width: 90vw;
-}
-
-div .formato-input{
-   height: 2.5rem;
-   border-radius: 1rem;
-   box-shadow: 8px 8px 10px 3px rgba(0, 0, 0, 0.4);
-   background-color: rgba(198, 163, 121, 0.651);
-   font-family: 'Courier New', Courier, monospace;
-   font-weight: bold;
-   border: 1px solid black;
-   margin-top: 5px;
-
-
 }
 
 .caja{
@@ -87,19 +56,18 @@ div .formato-input{
    background-color: rgba(164, 192, 224,.5);
    transition:background-color 0.4s ease ;
 }
-ul{
-   padding: 1.2rem;
-}
 
-.titulo{
+
+h2.titulo{
    text-align: center;
-   margin-bottom: .8rem;
+   margin: 1rem;
    font-size: calc(1rem + 1vw);
 }
 .parrafo{
    font-size: calc(.7rem + .6vw);
    padding: .2rem;
-   margin: .3rem 1rem;
+   margin: .4rem 1.5rem;
+   list-style: none;
 }
 .pie{
    margin-top: 1.5rem;
