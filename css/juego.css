@@ -1,10 +1,7 @@
 html{
    background-color: rgba(198, 163, 121, 0.651);
-   
 }
-::placeholder{
-   font-size: calc(.7rem + .8vw);
-}
+
 .titulo{
    display: flex;
    justify-content: center;
@@ -18,8 +15,6 @@ text-align: center;
    height: 6vh;
     font-size: calc(1.5rem + 1vw);
    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-   /* margin-top:1rem;
-   padding: .5rem; */
    color:darkslategrey;
 
 }
@@ -27,10 +22,10 @@ text-align: center;
    background-color: rgba(113, 91, 64, 0.651);
    color: rgb(230, 250, 19);
    width: 100%;
-   height: 3rem;
+   height: 8vh;
    margin: 0;
    border: 2px solid burlywood;
-   font-size: calc(1.5rem + .8vw);
+   font-size: calc(1.8rem + .8vw);
 }
 
 input{
@@ -47,24 +42,19 @@ input{
    margin: 1rem 0;
 }
 div .letra{
-   width: 20vw;
+   width: 30vw;
    text-decoration: blink;
    cursor: pointer;
    font-size: 2.5rem;
 
 }
 div .vida{
-   width: 20vw;
-   outline: none;
-
-}
-div .puntos{
-   width: 28vw;
+   width: 30vw;
    outline: none;
 }
 
 div .formato-input{
-   height: 3.5rem;
+   height: 4.5rem;
    border-radius: 1rem;
    box-shadow: 8px 8px 10px 3px rgba(0, 0, 0, 0.4);
    background-color: rgba(198, 163, 121, 0.651);
@@ -93,6 +83,7 @@ div .formato-input{
 }
 .letraIngresada{
    display: flex;
+   flex-direction: row;
    justify-content: space-around;
 }
 .monitos{
@@ -112,15 +103,9 @@ div .formato-input{
    justify-content: center;
    align-items: center;
    width: 20vw;
-   height: 10.5vh;
+   height: 15vh;
    font-size: calc(1rem + 2vw);
    
-}
-.cajaInput{
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   margin: 0;
 }
 
 .hidden {
@@ -138,10 +123,10 @@ div .formato-input{
 }
 footer{
    display: flex;
-   justify-content: center;
+   justify-content: space-around;
 }
 canvas{
-   width: 55vw;
+   width: 50vw;
    height: 45vh;
    background-color: bisque;
    border: 1px solid black;
@@ -152,14 +137,17 @@ canvas{
 
 .botones{
    flex-direction: column;
+   justify-content: space-between;
+   align-items: center;
    display: flex;
-   margin: .5rem .5rem;
+   width: 40vw;
+   margin: 0;
 }
 .btnJuego{
    display: inline-block;
    font-size: calc(.6rem + .8vw);
    width: 37vw;
-   height: 2.5rem;
+   height: 5vh;
    margin: .5rem 0;
    border: 1px solid white;
 
@@ -176,14 +164,14 @@ canvas{
    
 }
 .labelAdd{
-   font-size: calc(.5rem + .6vw);
+   font-size: calc(.5rem + .8vw);
    font-family: 'Courier New', Courier, monospace;
    text-align: center;
 }
 
 
 .palabraAdd{
-   width: 18vw;
+   width: 20vw;
    height: 4.5vh;
    border-radius: .5rem;
    font-size: calc(.8rem + .8vw);
@@ -194,26 +182,42 @@ canvas{
 .btnpalabraAdd{
    width: 16vw;
    height: 5vh;
-   /* margin: 0; */
 }
 .cajaAddPalabra{
    display: flex;
-   justify-content: center;
+   justify-content: space-between;
    align-items: center;
 }
-
+.cajaHelp{
+   justify-content: center;
+}
 @keyframes pulso{
 0%{
-   transform: scale(1.2);
+   transform: scale(1.4);
 }
 50%{
    transform: scale(.8);
 }
 100%{
-   transform: scale(1.2);
+   transform: scale(1.4);
 }
 }
 .pulso{
    /* font-size: 1rem; */
    animation: pulso 1.1s linear infinite;
+}
+.cajaInput{
+   display: flex;
+   justify-content: space-between;
+   /* align-items: center; */
+   margin: 0;
+}
+.btnHomeReset{
+   width: 18vw;
+   height: 6vh;
+   background-color: chocolate;
+}
+.btnHome{
+   margin-right:.5rem;
+
 }

@@ -45,24 +45,24 @@
       <div class='botones'>
          <button id='comprobar' onclick='btnComprobar()' class='btnJuego'>COMPROBAR</button>
          <button onclick='btnJugar()' class='btnJuego'>NUEVO JUEGO </button>
-         <label for='texto' class="labelAdd">Ingresa nueva palabra hasta siete letras</label>
+            <label for='texto' class="labelAdd">Ingresa nueva palabra hasta siete letras</label>
             <div class="cajaAddPalabra">
-            <input type="texto" id="palabraAdd" maxlength="7" class='palabraAdd' placeholder="Ingresar">
-            <button class=' btnJuego btnpalabraAdd ' onclick="btnPalabraAdd()">Agregar</button>
+               <input type="texto" id="palabraAdd" maxlength="7" class='palabraAdd' placeholder="Ingresar">
+               <button class=' btnJuego btnpalabraAdd ' onclick="btnPalabraAdd()">Agregar</button>
+            </div>
+            <label for='textos' class="labelAdd">Ayuda: La palabra pertenece a este género</label>
+            <div class="cajaAddPalabra cajaHelp">
+               <input type="textos" id="helpWord" class='palabraAdd' readonly>
+               <button class=' btnJuego btnpalabraAdd ' onclick="btnhelpWord()">Ayuda</button>
             </div>
             <div class="cajaInput">
-               <a class='nivel' href='index.html'><button class='btnJuego'>HOME</button></a>
+               <a class='nivel' href='index.html'><button class='btnJuego btnHomeReset btnHome'>HOME</button></a>
+               <button class='btnJuego btnHomeReset' onclick="btnRefrescar()">RESET</button>
             </div>
-            <label for='textos' class="labelAdd">Ayuda: pertenece a este genero</label>
-            <div class="cajaAddPalabra">
-            <input type="textos" id="helpWord" class='palabraAdd' readonly>
-            <button class=' btnJuego btnpalabraAdd ' onclick="btnhelpWord()">Ayuda</button>
-            </div>
-
-         </div>
+      </div>
             <canvas id='canvas' width='600' height='400'></canvas>
          
-      </footer>
+   </footer>
 
   <script src='js/lista.js'></script>
 <script src='js/ahorcado.js'></script>
