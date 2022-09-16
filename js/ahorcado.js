@@ -1,4 +1,4 @@
-let soloLetras = /^[a-zA-Z]/;
+let soloLetras = /^[A-Z]/;
 let entrada = document.querySelector('.letra'),
     info = document.querySelector('.info'),
     vidas = document.querySelector('#vida');
@@ -17,7 +17,7 @@ let entrada = document.querySelector('.letra'),
 function listasAdd(lsts){
       let numeroAleatorio=Math.floor(Math.random()*lsts.length);
       let palabraSecreta=lsts[numeroAleatorio];
-     palabrita= palabraSecreta.toLowerCase();
+     palabrita= palabraSecreta.toUpperCase();
      palabraSecreta=palabrita;
       arrayWord(palabraSecreta);
       helpWordAdd(palabraSecreta)
@@ -32,10 +32,10 @@ function btnhelpWord(){
 }
 
 function helpWordAdd(palabraSecreta){
-   if (listasNumeros.includes(palabraSecreta)){help.value='NUMEROS'}
-   if (listasFrutas.includes(palabraSecreta)){help.value='FRUTAS'}
-   if (listasMeses.includes(palabraSecreta)){help.value='MESES'}
-   if (!(listasNumeros.includes(palabraSecreta))&&!(listasFrutas.includes(palabraSecreta))&&!(listasMeses.includes(palabraSecreta)))
+   if (listasNumeros.includes(palabraSecreta.toLowerCase())){help.value='NUMEROS'}
+   if (listasFrutas.includes(palabraSecreta.toLowerCase())){help.value='FRUTAS'}
+   if (listasMeses.includes(palabraSecreta.toLowerCase())){help.value='MESES'}
+   if (!(listasNumeros.includes(palabraSecreta.toLowerCase()))&&!(listasFrutas.includes(palabraSecreta.toLowerCase()))&&!(listasMeses.includes(palabraSecreta.toLowerCase())))
    {help.value='Es tu palabra'}
 }
 
@@ -80,7 +80,7 @@ function ingresoPalabra(){
             inputPalabra.value="";
          }
       }else{
-         alert('Caracter no válido -SOLO LETRAS MINÚSCULAS!!!');
+         alert('Caracter no válido -SOLO LETRAS MAÚSCULAS!!!');
          inputPalabra.value="";
       }
    });
@@ -97,7 +97,7 @@ function ingresoCaracter(){
                      btnComprobar();
                }
             }else{
-               info.value='Caracter no válido!!!';
+               info.value='Caracter no válido!!! PROBÁ CON MAYÚSCULA';
                setTimeout(function(){
                entrada.value=''}, 500);
             }
@@ -129,7 +129,7 @@ function btnComprobar(palabraSecreta){
           ltr;
 
       if(letra.match(soloLetras)){
-         ltr=letra.toLowerCase();
+         ltr=letra.toUpperCase();
         
          for(let i in arrayPalabra){
             if(ltr==arrayPalabra[i]&&ltr.match(soloLetras)&&!((ltr=== ' ')||(ltr=== ''))){
