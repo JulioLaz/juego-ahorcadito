@@ -75,7 +75,8 @@ div .formato-input{
    border-radius: 1rem;
    background-color: rgb(157, 144, 97);
    padding:0 1rem;
-   
+   box-shadow: 8px 8px 10px 3px rgba(0, 0, 0, 0.4);
+
 }
 .letra:hover{
    background-color: rgba(159, 149, 113, 0.5);
