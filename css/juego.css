@@ -1,7 +1,10 @@
 html{
    background-color: rgba(198, 163, 121, 0.651);
 }
-
+::placeholder{
+   color: rgb(165, 105, 105);
+   font-weight: 500;
+}
 .titulo{
    display: flex;
    justify-content: center;
@@ -25,12 +28,11 @@ h1{
    height: 8vh;
    margin: 0;
    border: 2px solid burlywood;
-   font-size: calc(1.2rem + 1.1vw);
+   font-size: calc(.75rem + 1.1vw);
 }
 
 input{
    text-align: center;
-   font-size: 1.5rem;
    display: flex;
    margin: .5rem 0;
    width: 90vw;
@@ -45,7 +47,7 @@ div .letra{
    width: 20vw;
    text-decoration: blink;
    cursor: pointer;
-   font-size: 2.5rem;
+   font-size: 2rem;
 }
 div .vida{
    width: 34vw;
@@ -165,9 +167,8 @@ margin-right: .5rem;}
    font-size: calc(.5rem + .8vw);
    font-family: 'Courier New', Courier, monospace;
    text-align: center;
+   font-weight: bold;
 }
-
-
 .palabraAdd{
    width: 20vw;
    height: 4.5vh;
