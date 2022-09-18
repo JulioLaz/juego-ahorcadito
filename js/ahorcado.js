@@ -52,18 +52,28 @@ function wordHidden(arrayPalabra,palabraSecreta){
       return palabraOculta;
 }
     
+let listaJugador=[];
 function btnPalabraAdd(){
       audioEnter.play();
       let palabraAdd = document.querySelector('#palabraAdd');
       listas.push(palabraAdd.value);
+      listaJugador.push(palabraAdd.value);
       listaSinVacios= listas.filter((item) => item !== '')
       document.getElementById('errores').innerHTML='😁';
-      palabraAdd.value="";
       listasAdd(listaSinVacios);
       ingresoCaracter();
       deleteHelp()
       vidas.value='😊😊😊😊😊';
+      info.value='Palabra agregada: '+listaJugador.join(' ');
+      document.querySelector(".info").style.color = "pink";
+      setTimeout(() => {
+         document.querySelector(".info").style.color = "yellow";
+         info.value='INGRESA UNA LETRA';
+         
+      }, 1500);
+      document.querySelector(".info").style.color = "pink";
       vida=5;
+      palabraAdd.value="";
 }
 //verificacion de caracteres
 function ingresoPalabra(){
@@ -77,7 +87,6 @@ function ingresoPalabra(){
             btnPalabraAdd();
             document.getElementById('info').innerHTML=inputPalabra.value;
             arrayInput.push(inputPalabra.value);
-            // inputPalabraAdd.value=arrayInput;
             inputPalabra.value="";
          }
       }else{
@@ -149,7 +158,6 @@ let arrayErrores=[],arrayEntrada=[],vida=5;
 
 function contadorFallos(ltr){
    if(!(ltr==undefined)){
-      // console.log(arrayPalabra);
       if(!arrayPalabra.includes(ltr)){
          arrayEntrada[a]=ltr;
 
