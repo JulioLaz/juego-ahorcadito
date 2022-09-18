@@ -1,40 +1,38 @@
 html{
    background-color: rgba(198, 163, 121, 0.651);
-   
 }
-header{
-   width: 100vw;
+::placeholder{
+   color: rgb(165, 105, 105);
+   font-weight: 500;
 }
-marquee{
+.titulo{
    display: flex;
-   justify-content: space-between;
+   justify-content: center;
    align-items: center;
-   height: 8vh;
+   height: 10vh;
+}
+h1{
+   display: flex;
    align-items: center;
    text-align: center;
-   font-size: calc(.8rem + 1vw);
+   height: 6vh;
+    font-size: calc(1.5rem + 1vw);
    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-   margin:0 25vw;
    color:darkslategrey;
-}
-marquee.lista{
-   font-size: calc(.7rem + 1vw);
-   color: brown;
-   margin:0 8vw;
+
 }
 .info{
    background-color: rgba(113, 91, 64, 0.651);
    color: rgb(230, 250, 19);
    width: 100%;
-   height: 4rem;
+   height: 8vh;
    margin: 0;
    border: 2px solid burlywood;
-   font-size: calc(1.5rem + .8vw);
+   font-size: calc(.75rem + 1.1vw);
 }
 
 input{
    text-align: center;
-   font-size: 1.5rem;
    display: flex;
    margin: .5rem 0;
    width: 90vw;
@@ -46,24 +44,19 @@ input{
    margin: 1rem 0;
 }
 div .letra{
-   width: 40vw;
+   width: 20vw;
    text-decoration: blink;
    cursor: pointer;
-   font-size: 3rem;
-
+   font-size: 2rem;
 }
 div .vida{
-   width: 10vw;
+   width: 34vw;
    outline: none;
-
-}
-div .puntos{
-   width: 28vw;
-   outline: none;
+   font-size: calc(.8rem + 1.5vw);
 }
 
 div .formato-input{
-   height: 4rem;
+   height: 4.5rem;
    border-radius: 1rem;
    box-shadow: 8px 8px 10px 3px rgba(0, 0, 0, 0.4);
    background-color: rgba(198, 163, 121, 0.651);
@@ -71,6 +64,7 @@ div .formato-input{
    font-weight: bold;
    border: 1px solid black;
    margin-top: 5px;
+   padding-bottom: 5px;
 }
 
 .letraI{
@@ -79,8 +73,6 @@ div .formato-input{
    font-size: calc(.5rem + 2vw);
    border: 1px solid black;
    border-radius: 1rem;
-   width: 25vw;
-   height: 10vh;
    background-color: rgb(157, 144, 97);
    padding:0 1rem;
    
@@ -91,6 +83,7 @@ div .formato-input{
 }
 .letraIngresada{
    display: flex;
+   flex-direction: row;
    justify-content: space-around;
 }
 .monitos{
@@ -101,7 +94,7 @@ div .formato-input{
    font-size: calc(1rem + 2vw);
    border: 1px solid black;
    border-radius: 1rem;
-   width: 90vw;
+   width: 85vw;
    height: 10vh;
    background-color: rgb(157, 144, 97);
 }
@@ -109,11 +102,12 @@ div .formato-input{
    display: flex;
    justify-content: center;
    align-items: center;
-   width: 20vw;
-   height: 6rem;
-   font-size: calc(1rem + 2vw);
+   width: 16vw;
+   height: 15vh;
+   font-size: calc(1rem + 2.5vw);
    
 }
+
 .hidden {
    display: flex;
    justify-content: center;
@@ -132,27 +126,29 @@ footer{
    justify-content: center;
 }
 canvas{
-   width: 30vw;
-   height: auto;
+   display: flex;
+   width: 50vw;
+   height: 43vh;
    background-color: bisque;
    border: 1px solid black;
    border-radius: 2rem;
    padding:1rem;
    box-shadow: 0px 0px 15px 10px rgba(0, 0, 0, 0.4);
-
 }
 
 .botones{
    flex-direction: column;
+   justify-content: space-between;
+   align-items: center;
    display: flex;
-   margin: 1rem 1rem;
-}
+   width: 40vw;
+margin-right: .5rem;}
 .btnJuego{
    display: inline-block;
    font-size: calc(.6rem + .8vw);
-   width: 29vw;
-   height: 2.5rem;
-   margin: 1rem;
+   width: 37vw;
+   height: 5vh;
+   margin: .5rem 0;
    border: 1px solid white;
 
    background-color:rgb(162, 121, 17);
@@ -161,9 +157,65 @@ canvas{
    box-shadow: -5px 0px 15px 3px rgba(0, 0, 0, 0.4);
 }
 .btnJuego:hover{
-   font-size: calc(.7rem + .8vw);
+   font-size: calc(.8rem + .8vw);
    background-color:rgba(162, 121, 17,.5);
    color: bisque;
 
    
+}
+.labelAdd{
+   font-size: calc(.5rem + .8vw);
+   font-family: 'Courier New', Courier, monospace;
+   text-align: center;
+   font-weight: bold;
+}
+.palabraAdd{
+   width: 20vw;
+   height: 4.5vh;
+   border-radius: .5rem;
+   font-size: calc(.65rem + .8vw);
+   border: 1px solid black;
+   margin-right: .5rem;
+   color: gray;
+   font-weight: bold;
+   
+}
+.btnpalabraAdd{
+   width: 16vw;
+   height: 5vh;
+}
+.cajaAddPalabra{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+.cajaHelp{
+   justify-content: center;
+}
+@keyframes pulso{
+0%{
+   transform: scale(1.2);
+}
+50%{
+   transform: scale(.8);
+}
+100%{
+   transform: scale(1.2);
+}
+}
+.pulso{
+   animation: pulso 1.1s linear infinite;
+}
+.cajaInput{
+   display: flex;
+   justify-content: space-between;
+   margin: 0;
+}
+.btnHomeReset{
+   width: 18vw;
+   height: 6vh;
+   background-color: chocolate;
+}
+.btnHome{
+   margin-right:.5rem;
 }

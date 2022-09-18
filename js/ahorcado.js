@@ -1,18 +1,36 @@
-//cursor en input entrada
-const btnEnfocar = document.querySelector('#comprobar'),
-	   $nombre = document.querySelector('#letra');
-      btnEnfocar.addEventListener('click', () => {$nombre.focus();});
-
+let soloLetras = /^[A-Z]/;
 let entrada = document.querySelector('.letra'),
     info = document.querySelector('.info'),
-    vidas = document.querySelector('#vida'),
-    puntos = document.querySelector('#puntos');
+    vidas = document.querySelector('#vida');
+    help = document.querySelector('#helpWord');
+    document.getElementById('helpWord').innerHTML='NUMEROS😘';
+    document.getElementById('errores').innerHTML='🤩: ';
+    info.value='Ingresar una Letra!!!';//en el input #info
 
-    info.value='Inicia con una letra!!!';//en el input #info
+    const audioInicioJuego = new Audio(`sonidos/inicioJuego.mp3`)
+    const audioAcierto = new Audio(`sonidos/acierto.mp3`)
+    const audioFinalPerdido = new Audio(`sonidos/finalPerdido.mp3`)
+    const audioEnter = new Audio(`sonidos/ingresoLetra.mp3`)
+    const audioPerderVida = new Audio(`sonidos/perderVida.mp3`)
+    const audioVictoria = new Audio(`sonidos/victoria.mp3`)
 
-document.getElementById('errores').innerHTML='😒: ';
-      
-let soloLetras = /^[a-zA-Z]/;
+function listasAdd(lsts){
+      let numeroAleatorio=Math.floor(Math.random()*lsts.length);
+      let palabraSecreta=lsts[numeroAleatorio];
+     palabrita= palabraSecreta.toUpperCase();
+     palabraSecreta=palabrita;
+      arrayWord(palabraSecreta);
+      helpWordAdd(palabraSecreta)
+      return palabraSecreta;
+   }
+function btnhelpWord(){
+   audioEnter.play();
+   document.querySelector("#helpWord").style.width = "20vw";
+   document.querySelector("#helpWord").style.height = "4.3vh";
+   document.querySelector("#helpWord").style.border = "1px solid black";
+   document.querySelector("#helpWord").style.background = "black";
+   document.querySelector("#helpWord").style.color = "white";
+}
 
 // if( )
 // console.log(newlista);
@@ -37,37 +55,40 @@ function ingresoCaracter(){
                      btnComprobar();
                }
             }else{
-               info.value='Caracter no válido!!!';
+               info.value='Caracter no válido!!! PROBÁ CON MAYÚSCULA';
                setTimeout(function(){
                entrada.value=''}, 500);
             }
          });
+}
+
+function verPalabra(palabraSecreta){
+   newArrayPalabra=arrayPalabra.join('');
+   if(palabraSecreta==undefined){
+   palabraSecreta=newArrayPalabra.toString();
    }
-
-function verPalabra(palabraOculta){
-
       let elemento='',
           letras = palabraSecreta.split('');
 
       letras.forEach((e)=> {
          if(palabraOculta.includes(e)){
             elemento += `<div class='hidden'>${e}</div>`;
+            audioAcierto.play();
          }
          else{
             elemento += `<div class='hidden'>🙈</div>`;
          }
       });
       document.getElementById('letraI').innerHTML=elemento;
-   }
+}
    
-function btnComprobar(){
-
+function btnComprobar(palabraSecreta){
       let letra = document.querySelector('#letra').value,
           ltr;
 
       if(letra.match(soloLetras)){
-         ltr=letra.toLowerCase();
-         
+         ltr=letra.toUpperCase();
+        
          for(let i in arrayPalabra){
             if(ltr==arrayPalabra[i]&&ltr.match(soloLetras)&&!((ltr=== ' ')||(ltr=== ''))){
                palabraOculta[i]=ltr;
@@ -77,28 +98,31 @@ function btnComprobar(){
       }
       contadorFallos(ltr);
       contadorIntentos(ltr);
-      verPalabra(palabraOculta);
+      verPalabra(palabraSecreta);
 }
 
-let arrayErrores=[],
-    arrayEntrada=[],
-    vida=5;
+let arrayErrores=[],arrayEntrada=[],vida=5;
     a=0;//incrementador array de letras erradas
 
 function contadorFallos(ltr){
-
    if(!(ltr==undefined)){
+      // console.log(arrayPalabra);
       if(!arrayPalabra.includes(ltr)){
          arrayEntrada[a]=ltr;
 
          let arrayErrores = arrayEntrada.filter((item,index)=>{
              return arrayEntrada.indexOf(item) === index}),
+             vidasGit=[],
              veces=vida-arrayErrores.length;
-             a=a+1;
-
+             a++;
+         
+         audioPerderVida.play();
          document.getElementById('errores').innerHTML='😫: '+arrayErrores;
-         info.value= 'erraste: quedan '+ veces + ' intentos';
-         vidas.value=veces
+         info.value= 'Te quedan '+ veces + ' intentos';
+         for(let i=1;i<=veces;i++){
+            vidasGit.push('😊');
+         }
+         vidas.value=vidasGit.join('')
          if(veces===(vida-1)){
             caja(true);
          }
@@ -113,12 +137,19 @@ function contadorFallos(ltr){
          }
          entrada.value='';
          if(arrayErrores.length === vida){
+            vidas.value="💀"
             personaDeath();
             caja(false);
-             info.value='PERDISTE';
+            audioFinalPerdido.play();
+             info.value='JUEGA OTRA VEZ - PALABRA OCULTA: '+arrayPalabra.join('');
              document.getElementById('errores').innerHTML= "<img src=img/pinguinotriste.gif>";
-             setTimeout(function(){alert('!!!PERDISTE!!!');
-               location. reload()}, 500);
+             setTimeout(function(){
+             alert('!!!PERDISTE!!!  PALABRA OCULTA: '+arrayPalabra.join(''));
+             arrayErrores=[],arrayEntrada=[],vida=5;
+             canvas.width=canvas.width;
+             patibulo();
+             btnJugar();
+            }, 500);
          }
       }
       }else{
@@ -128,12 +159,10 @@ function contadorFallos(ltr){
 
 
 function contadorIntentos(ltr){
-
    let a1=palabraOculta.join(''),
    a2=arrayPalabra.join('');
    
    const comparacionArrayEntradaSalida = function (a1, a2){
-
       let i = a1.length;
       if (i != a2.length) return false;
       while(i--){
@@ -145,22 +174,47 @@ function contadorIntentos(ltr){
          if(comparacionArrayEntradaSalida(a1,a2)){
             document.getElementById('errores').innerHTML= "<img src=img/pinguino.gif>";
             ganaste();
+            audioVictoria.play();
             info.value='-----GANASTE-----';
             setTimeout(function(){
                alert('!!!GANASTE!!!');
-               location. reload();
-             }, 1000);
+               info.value='JUGAR OTRA VEZ';
+               document.getElementById('errores').innerHTML= "";
+               
+            }, 1000);
+            arrayErrores=[],arrayEntrada=[],vida=5;
+            setTimeout(function(){
+               canvas.width=canvas.width;
+               patibulo();
+               btnJugar();
+            }, 1000);
+            
          }else{
-            info.value= 'Ingesa otra letra';
+            info.value= 'Ingresa otra letra';
          }
       }
 }
 
-function ponerGuiones(){
-   verPalabra(palabraOculta);
+function btnJugar(){
+    audioInicioJuego.play();
+   btnPalabraAdd()
    ingresoCaracter();
-   vidas.value=5;
+   vidas.value='😊😊😊😊😊';
+   vida=5;
+   info.value='JUGAR: INGRESA UNA LETRA';
+   deleteHelp()
 }
-ponerGuiones();
-// }
-function refrescar(){window.location.reload()}
+btnJugar();
+
+function deleteHelp(){
+   document.querySelector("#helpWord").style.width = "0vw";
+   document.querySelector("#helpWord").style.height = "0vh";
+   document.querySelector("#helpWord").style.border = "none";
+   document.querySelector("#helpWord").style.background = "none";
+}
+
+function btnRefrescar(){
+   audioEnter.play();
+   window.location.reload()
+}
+
