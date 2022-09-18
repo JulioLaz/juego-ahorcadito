@@ -28,7 +28,8 @@ function btnhelpWord(){
    document.querySelector("#helpWord").style.width = "20vw";
    document.querySelector("#helpWord").style.height = "4.3vh";
    document.querySelector("#helpWord").style.border = "1px solid black";
-   document.querySelector("#helpWord").style.background = "white";
+   document.querySelector("#helpWord").style.background = "black";
+   document.querySelector("#helpWord").style.color = "white";
 }
 
 function helpWordAdd(palabraSecreta){
