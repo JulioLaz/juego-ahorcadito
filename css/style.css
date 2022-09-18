@@ -15,14 +15,13 @@ marquee{
    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
    margin:0 5vw;
    color:darkslategrey;
-   font-size: calc(1.5rem + 1vw);
+   font-size: calc(1.2rem + 1vw);
 }
 
 .alura{
    margin:0;
    background-color: chocolate;
 }
-
 .aluraTxt{
    font-size: 2.5rem;
    font-family:Verdana, Geneva, Tahoma, sans-serif;
@@ -45,7 +44,7 @@ marquee{
    border-radius:1rem;
    padding: .5vw;
    border: 1px solid white;
-   margin: 1rem 0;
+   margin: 2rem 0;
    font-size:clamp(.6rem, calc(.6rem + 0.6vw), 1.2rem);
    background: rgba(160, 186, 215, 0.7);
    resize:none;
@@ -58,6 +57,7 @@ marquee{
 h2.titulo{
    text-align: center;
    margin: 1rem;
+   margin-bottom: calc(1.5rem + 2vw);
    font-size: calc(1.5rem + 1vw);
 }
 .parrafo{

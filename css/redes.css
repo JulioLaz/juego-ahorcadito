@@ -48,7 +48,9 @@ html {
       width: 38px;
       height: 38px;
       }
-
+span.redAlura{
+   width:150px;
+}
    #alura{
       height: 38px;
       width: auto;
