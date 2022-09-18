@@ -11,7 +11,7 @@ html{
 h1{
    display: flex;
    align-items: center;
-text-align: center;
+   text-align: center;
    height: 6vh;
     font-size: calc(1.5rem + 1vw);
    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -25,7 +25,7 @@ text-align: center;
    height: 8vh;
    margin: 0;
    border: 2px solid burlywood;
-   font-size: calc(1.8rem + .8vw);
+   font-size: calc(1.2rem + 1.1vw);
 }
 
 input{
@@ -42,15 +42,15 @@ input{
    margin: 1rem 0;
 }
 div .letra{
-   width: 30vw;
+   width: 20vw;
    text-decoration: blink;
    cursor: pointer;
    font-size: 2.5rem;
-
 }
 div .vida{
-   width: 30vw;
+   width: 34vw;
    outline: none;
+   font-size: calc(.8rem + 1.5vw);
 }
 
 div .formato-input{
@@ -71,8 +71,6 @@ div .formato-input{
    font-size: calc(.5rem + 2vw);
    border: 1px solid black;
    border-radius: 1rem;
-   width: 25vw;
-   height: 10vh;
    background-color: rgb(157, 144, 97);
    padding:0 1rem;
    
@@ -94,7 +92,7 @@ div .formato-input{
    font-size: calc(1rem + 2vw);
    border: 1px solid black;
    border-radius: 1rem;
-   width: 90vw;
+   width: 85vw;
    height: 10vh;
    background-color: rgb(157, 144, 97);
 }
@@ -102,9 +100,9 @@ div .formato-input{
    display: flex;
    justify-content: center;
    align-items: center;
-   width: 20vw;
+   width: 16vw;
    height: 15vh;
-   font-size: calc(1rem + 2vw);
+   font-size: calc(1rem + 2.5vw);
    
 }
 
@@ -128,7 +126,7 @@ footer{
 canvas{
    display: flex;
    width: 50vw;
-   height: 45vh;
+   height: 43vh;
    background-color: bisque;
    border: 1px solid black;
    border-radius: 2rem;
@@ -142,8 +140,7 @@ canvas{
    align-items: center;
    display: flex;
    width: 40vw;
-   margin: 0;
-}
+margin-right: .5rem;}
 .btnJuego{
    display: inline-block;
    font-size: calc(.6rem + .8vw);
@@ -175,9 +172,11 @@ canvas{
    width: 20vw;
    height: 4.5vh;
    border-radius: .5rem;
-   font-size: calc(.8rem + .8vw);
+   font-size: calc(.65rem + .8vw);
    border: 1px solid black;
    margin-right: .5rem;
+   color: gray;
+   font-weight: bold;
    
 }
 .btnpalabraAdd{
@@ -194,13 +193,13 @@ canvas{
 }
 @keyframes pulso{
 0%{
-   transform: scale(1.4);
+   transform: scale(1.2);
 }
 50%{
    transform: scale(.8);
 }
 100%{
-   transform: scale(1.4);
+   transform: scale(1.2);
 }
 }
 .pulso{
