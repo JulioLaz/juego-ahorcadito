@@ -143,7 +143,11 @@ canvas{
    align-items: center;
    display: flex;
    width: 40vw;
-margin-right: .5rem;}
+margin-right: .5rem;
+}
+#comprobar{
+   height: 3.5rem;
+}
 .btnJuego{
    display: inline-block;
    font-size: calc(.6rem + .8vw);
