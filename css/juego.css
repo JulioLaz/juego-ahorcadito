@@ -28,7 +28,7 @@ h1{
    height: 8vh;
    margin: 0;
    border: 2px solid burlywood;
-   font-size: calc(.75rem + 1.1vw);
+   font-size: calc(1rem + 1.5vw);
 }
 
 input{
