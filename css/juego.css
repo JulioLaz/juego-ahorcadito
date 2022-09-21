@@ -51,6 +51,7 @@ div .letra{
 }
 div .vida{
    width: 34vw;
+   height: 10vh;
    outline: none;
    font-size: calc(.8rem + 1.5vw);
 }
@@ -65,6 +66,17 @@ div .formato-input{
    border: 1px solid black;
    margin-top: 5px;
    padding-bottom: 5px;
+}
+div .vidapuntos{
+   height: 2rem;
+}
+#puntos{
+   width: 15vw;
+}
+div .puntos{
+   display: flex;
+   justify-content: space-evenly;
+   align-items: center;
 }
 
 .letraI{
