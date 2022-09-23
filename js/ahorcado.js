@@ -6,7 +6,6 @@ let entrada = document.querySelector('.letra'),
     puntos = document.querySelector('#puntos');
     document.getElementById('helpWord').innerHTML='NUMEROS😘';
     document.getElementById('errores').innerHTML='🤩: ';
-   //  document.getElementById('letraI').innerHTML= '';
 
     info.value='Ingresar una Letra!!!';//en el input #info
     puntos.value="0"
@@ -168,8 +167,8 @@ function contadorFallos(ltr){
          arrayEntrada[a]=ltr;
 
          let arrayErrores = arrayEntrada.filter((item,index)=>{
-             return arrayEntrada.indexOf(item) === index}),
-             vidasGit=[],
+             return arrayEntrada.indexOf(item) === index});
+         let vidasGit=[];
              veces=vida-arrayErrores.length;
              a++;
          
@@ -194,6 +193,10 @@ function contadorFallos(ltr){
          }
          entrada.value='';
          if(arrayErrores.length === vida){
+
+            puntaje=null;
+            puntosAdd(puntaje)
+
             vidas.value="💀"
             personaDeath();
             caja(false);
@@ -222,9 +225,8 @@ function contadorIntentos(ltr){
 
    cantidadLetras=a2.length;
    cantidadLetrasAcertadas=(palabraOculta.filter(e=>e!='_ ')).length;
-   // if()
    puntaje=(cantidadLetrasAcertadas*1000)/(cantidadLetras);
-console.log(Math.floor(puntaje));
+   // console.log(Math.floor(puntaje));
    const comparacionArrayEntradaSalida = function (a1, a2){
       let i = a1.length;
       if (i != a2.length) return false;
@@ -235,28 +237,32 @@ console.log(Math.floor(puntaje));
    }
    if(arrayPalabra.includes(ltr)){
       puntosAdd(puntaje);
-
+      
       if(comparacionArrayEntradaSalida(a1,a2)){
          document.getElementById('errores').innerHTML= "<img src=img/pinguino.gif>";
          ganaste();
          audioVictoria.play();
-         info.value='-----GANASTE-----'+puntos.value+"PUNTOS";
-
-         setTimeout(function(){
-            alert('!!!GANASTE!!! PUNTOS: '+puntos.value);
-            info.value='JUGAR OTRA VEZ';
-            document.getElementById('errores').innerHTML= ""}, 1000);
-
-         arrayErrores=[],arrayEntrada=[],vida=5;
-         setTimeout(function(){
-            canvas.width=canvas.width;
-            patibulo();
-            btnJugar();
-         }, 1000);
+         document.getElementById('titulo').innerHTML= '🤩 1️⃣0️⃣0️⃣0️⃣ PUNTOS 🤩';
          
-      }else{
-         info.value= 'Ingresa otra letra';
-      }
+         info.value='-----GANASTE-----'+puntos.value+"PUNTOS";
+         
+         setTimeout(function(){
+                alert('!!!GANASTE!!! PUNTOS: '+puntos.value);
+                info.value='JUGAR OTRA VEZ';
+                document.getElementById('errores').innerHTML= ""}, 800);
+                //  document.getElementById('titulo').innerHTML= `<div class="titulo"><h1 id="titulo" class="h1 pulso">JUEGO DEL <strong>AHORCADITO</strong> </h1></div>`;
+                
+                arrayErrores=[],arrayEntrada=[],vida=5;
+                setTimeout(function(){
+                   canvas.width=canvas.width;
+                   patibulo();
+                   btnJugar();
+                  }, 1000);
+                  
+               }else{
+                  info.value= 'Ingresa otra letra';
+               }
+               console.log(ltr)
    }
 
 }
@@ -269,7 +275,14 @@ function btnJugar(){
    vida=5;
    // puntos.value="0"
    info.value='JUGAR: INGRESA UNA LETRA';
-   deleteHelp()
+   deleteHelp();
+ document.getElementById('titulo').innerHTML=
+ `<div class="titulo">
+      <h1 id="titulo" class="h1">
+         JUEGO DEL <strong>AHORCADITO</strong>
+      </h1>
+   </div>`;
+
 }
 btnJugar();
 
@@ -304,13 +317,24 @@ function puntosAdd(puntaje){
                arrayPuntos.push(Math.random())
             }
             console.log(arrayPuntos)
-         }   
+         }
          arrayPuntos.push((puntaje));
+         if(puntaje==null){
+            for(let i =0;i<arrayPuntos.length;i++){
+                  arrayPuntos.pop()
+               }
+         }
    for(let i =0;i<arrayPuntos.length;i++){
       if(arrayPuntos[i]==arrayPuntos[i-1]){
          arrayPuntos.pop()
       }
+      
    }
+   if(arrayErrores.length === arrayPalabra.length){
+alert(perdiste)
+   }
+   console.log('arrayErrores: '+ arrayErrores.length)
+   console.log('arrayPalabra: '+ arrayPalabra.length)
    score=arrayPuntos.length*100;
 
    setTimeout(function(){
