@@ -6,7 +6,11 @@ let entrada = document.querySelector('.letra'),
     puntos = document.querySelector('#puntos');
     document.getElementById('helpWord').innerHTML='NUMEROS😘';
     document.getElementById('errores').innerHTML='🤩: ';
+   //  document.getElementById('letraI').innerHTML= '';
+
     info.value='Ingresar una Letra!!!';//en el input #info
+    puntos.value="0"
+
 
     const audioInicioJuego = new Audio(`sonidos/inicioJuego.mp3`)
     const audioAcierto = new Audio(`sonidos/acierto.mp3`)
@@ -20,6 +24,7 @@ function listasAdd(lsts){
       let palabraSecreta=lsts[numeroAleatorio];
      palabrita= palabraSecreta.toUpperCase();
      palabraSecreta=palabrita;
+     console.log("palabraSecreta: "+palabraSecreta)
       arrayWord(palabraSecreta);
       helpWordAdd(palabraSecreta)
       return palabraSecreta;
@@ -214,10 +219,12 @@ function contadorIntentos(ltr){
    let a1=palabraOculta.join(''),
    a2=arrayPalabra.join(''),
    cantidadLetrasAcertadas;
+
    cantidadLetras=a2.length;
    cantidadLetrasAcertadas=(palabraOculta.filter(e=>e!='_ ')).length;
-   puntaje=cantidadLetrasAcertadas*1000/cantidadLetras;
-   console.log("palabra: "+a2)
+   // if()
+   puntaje=(cantidadLetrasAcertadas*1000)/(cantidadLetras);
+console.log(Math.floor(puntaje));
    const comparacionArrayEntradaSalida = function (a1, a2){
       let i = a1.length;
       if (i != a2.length) return false;
@@ -227,17 +234,19 @@ function contadorIntentos(ltr){
       return true;
    }
    if(arrayPalabra.includes(ltr)){
+      puntosAdd(puntaje);
+
       if(comparacionArrayEntradaSalida(a1,a2)){
          document.getElementById('errores').innerHTML= "<img src=img/pinguino.gif>";
          ganaste();
          audioVictoria.play();
-         info.value='-----GANASTE-----';
+         info.value='-----GANASTE-----'+puntos.value+"PUNTOS";
+
          setTimeout(function(){
-            alert('!!!GANASTE!!!');
+            alert('!!!GANASTE!!! PUNTOS: '+puntos.value);
             info.value='JUGAR OTRA VEZ';
-            document.getElementById('errores').innerHTML= "";
-            
-         }, 1000);
+            document.getElementById('errores').innerHTML= ""}, 1000);
+
          arrayErrores=[],arrayEntrada=[],vida=5;
          setTimeout(function(){
             canvas.width=canvas.width;
@@ -249,7 +258,7 @@ function contadorIntentos(ltr){
          info.value= 'Ingresa otra letra';
       }
    }
-   puntosAdd(puntaje);
+
 }
 
 function btnJugar(){
@@ -258,7 +267,7 @@ function btnJugar(){
    ingresoCaracter();
    vidas.value='😊😊😊😊😊';
    vida=5;
-   puntos.value="0"
+   // puntos.value="0"
    info.value='JUGAR: INGRESA UNA LETRA';
    deleteHelp()
 }
@@ -275,6 +284,41 @@ function btnRefrescar(){
    audioEnter.play();
    window.location.reload()
 }
+
+let arrayPuntos=[],
+sumatoriaPuntos=[],
+newResult=[]
+listasLetras=[],
+newResultlistas=[],
+total=0,
+score=0;
+
 function puntosAdd(puntaje){
-   puntos.value=Math.round(puntaje);
+      let arrayPalabraNoRepeat = arrayPalabra.filter((item,index)=>{
+         return arrayPalabra.indexOf(item) === index});
+         LetraAcertadas=(palabraOculta.filter(e=>e!='_ '));
+      let LetraAcertadasNoRepeat = LetraAcertadas.filter((item,index)=>{
+         return LetraAcertadas.indexOf(item) === index});
+         if(arrayPalabraNoRepeat.length==LetraAcertadasNoRepeat.length){
+            for(let i =0;i<10;i++){
+               arrayPuntos.push(Math.random())
+            }
+            console.log(arrayPuntos)
+         }   
+         arrayPuntos.push((puntaje));
+   for(let i =0;i<arrayPuntos.length;i++){
+      if(arrayPuntos[i]==arrayPuntos[i-1]){
+         arrayPuntos.pop()
+      }
+   }
+   score=arrayPuntos.length*100;
+
+   setTimeout(function(){
+
+   }, 1000);  
+         puntos.value=score;
+        
 }
+               
+               
+               
