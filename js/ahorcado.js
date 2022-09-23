@@ -194,7 +194,7 @@ function contadorFallos(ltr){
          entrada.value='';
          if(arrayErrores.length === vida){
 
-            puntaje=null;
+            puntaje=99999;
             puntosAdd(puntaje)
 
             vidas.value="💀"
@@ -316,13 +316,18 @@ function puntosAdd(puntaje){
             for(let i =0;i<10;i++){
                arrayPuntos.push(Math.random())
             }
-            console.log(arrayPuntos)
+            
+            // console.log("arrayPuntos: " +arrayPuntos)
          }
          arrayPuntos.push((puntaje));
-         if(puntaje==null){
-            for(let i =0;i<arrayPuntos.length;i++){
-                  arrayPuntos.pop()
-               }
+         // console.log("arrayPuntos: " +arrayPuntos)
+         if(puntaje==99999){
+            // console.log("arrayPuntos: " +arrayPuntos)
+            for(let i =0;i<=arrayPalabraNoRepeat.length;i++){
+               arrayPuntos.pop()
+            }
+            console.log("arrayPuntos: " +arrayPuntos)
+            console.log("arrayPalabraNoRepeat.length: " +arrayPalabraNoRepeat.length)
          }
    for(let i =0;i<arrayPuntos.length;i++){
       if(arrayPuntos[i]==arrayPuntos[i-1]){
@@ -333,13 +338,14 @@ function puntosAdd(puntaje){
    if(arrayErrores.length === arrayPalabra.length){
 alert(perdiste)
    }
-   console.log('arrayErrores: '+ arrayErrores.length)
-   console.log('arrayPalabra: '+ arrayPalabra.length)
+   // console.log('arrayErrores: '+ arrayErrores.length)
+   // console.log('arrayPalabra: '+ arrayPalabra.length)
    score=arrayPuntos.length*100;
 
    setTimeout(function(){
 
-   }, 1000);  
+   }, 1000);
+   console.log('score: '+score)
          puntos.value=score;
         
 }
