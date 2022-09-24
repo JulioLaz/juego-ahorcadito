@@ -8,7 +8,7 @@ let entrada = document.querySelector('.letra'),
     document.getElementById('errores').innerHTML='🤩: ';
 
     info.value='Ingresar una Letra!!!';//en el input #info
-    puntos.value="0"
+    puntos.value="PUNTOS: 0"
 
 
     const audioInicioJuego = new Audio(`sonidos/inicioJuego.mp3`)
@@ -192,24 +192,25 @@ function contadorFallos(ltr){
             cuervo();
          }
          entrada.value='';
+         console.log(arrayErrores.length+ '  '+ vida)
          if(arrayErrores.length === vida){
-
             puntaje=99999;
             puntosAdd(puntaje)
+            document.getElementById('titulo').innerHTML= '💀 PERDISTE 5️⃣0️⃣0️⃣PUNTOS 💀';
 
-            vidas.value="💀"
+            vidas.value="💀PERDISTE💀"
             personaDeath();
             caja(false);
             audioFinalPerdido.play();
-             info.value='JUEGA OTRA VEZ - PALABRA OCULTA: '+arrayPalabra.join('');
+             info.value='PALABRA OCULTA: '+arrayPalabra.join('');
              document.getElementById('errores').innerHTML= "<img src=img/pinguinotriste.gif>";
              setTimeout(function(){
-             alert('!!!PERDISTE!!!  PALABRA OCULTA: '+arrayPalabra.join(''));
+            //  alert('!!!PERDISTE!!!  PALABRA OCULTA: '+arrayPalabra.join(''));
              arrayErrores=[],arrayEntrada=[],vida=5;
              canvas.width=canvas.width;
              patibulo();
              btnJugar();
-            }, 500);
+            }, 3500);
          }
       }
       }else{
@@ -222,11 +223,9 @@ function contadorIntentos(ltr){
    let a1=palabraOculta.join(''),
    a2=arrayPalabra.join(''),
    cantidadLetrasAcertadas;
-
    cantidadLetras=a2.length;
    cantidadLetrasAcertadas=(palabraOculta.filter(e=>e!='_ ')).length;
    puntaje=(cantidadLetrasAcertadas*1000)/(cantidadLetras);
-   // console.log(Math.floor(puntaje));
    const comparacionArrayEntradaSalida = function (a1, a2){
       let i = a1.length;
       if (i != a2.length) return false;
@@ -242,29 +241,26 @@ function contadorIntentos(ltr){
          document.getElementById('errores').innerHTML= "<img src=img/pinguino.gif>";
          ganaste();
          audioVictoria.play();
-         document.getElementById('titulo').innerHTML= '🤩 1️⃣0️⃣0️⃣0️⃣ PUNTOS 🤩';
+         document.getElementById('titulo').innerHTML= '🤩 SUMASTE 1️⃣0️⃣0️⃣0️⃣ PUNTOS 🤩';
          
          info.value='-----GANASTE-----'+puntos.value+"PUNTOS";
          
          setTimeout(function(){
-                alert('!!!GANASTE!!! PUNTOS: '+puntos.value);
+               //  alert('!!!GANASTE!!! PUNTOS: '+puntos.value);
                 info.value='JUGAR OTRA VEZ';
-                document.getElementById('errores').innerHTML= ""}, 800);
-                //  document.getElementById('titulo').innerHTML= `<div class="titulo"><h1 id="titulo" class="h1 pulso">JUEGO DEL <strong>AHORCADITO</strong> </h1></div>`;
-                
+                document.getElementById('errores').innerHTML= ""}, 3000);
                 arrayErrores=[],arrayEntrada=[],vida=5;
                 setTimeout(function(){
                    canvas.width=canvas.width;
                    patibulo();
                    btnJugar();
-                  }, 1000);
+                  }, 5000);
                   
                }else{
                   info.value= 'Ingresa otra letra';
                }
                console.log(ltr)
    }
-
 }
 
 function btnJugar(){
@@ -273,7 +269,6 @@ function btnJugar(){
    ingresoCaracter();
    vidas.value='😊😊😊😊😊';
    vida=5;
-   // puntos.value="0"
    info.value='JUGAR: INGRESA UNA LETRA';
    deleteHelp();
  document.getElementById('titulo').innerHTML=
@@ -299,11 +294,6 @@ function btnRefrescar(){
 }
 
 let arrayPuntos=[],
-sumatoriaPuntos=[],
-newResult=[]
-listasLetras=[],
-newResultlistas=[],
-total=0,
 score=0;
 
 function puntosAdd(puntaje){
@@ -316,37 +306,20 @@ function puntosAdd(puntaje){
             for(let i =0;i<10;i++){
                arrayPuntos.push(Math.random())
             }
-            
-            // console.log("arrayPuntos: " +arrayPuntos)
          }
          arrayPuntos.push((puntaje));
-         // console.log("arrayPuntos: " +arrayPuntos)
          if(puntaje==99999){
-            // console.log("arrayPuntos: " +arrayPuntos)
             for(let i =0;i<=arrayPalabraNoRepeat.length;i++){
                arrayPuntos.pop()
             }
-            console.log("arrayPuntos: " +arrayPuntos)
-            console.log("arrayPalabraNoRepeat.length: " +arrayPalabraNoRepeat.length)
          }
    for(let i =0;i<arrayPuntos.length;i++){
       if(arrayPuntos[i]==arrayPuntos[i-1]){
          arrayPuntos.pop()
       }
-      
    }
-   if(arrayErrores.length === arrayPalabra.length){
-alert(perdiste)
-   }
-   // console.log('arrayErrores: '+ arrayErrores.length)
-   // console.log('arrayPalabra: '+ arrayPalabra.length)
    score=arrayPuntos.length*100;
-
-   setTimeout(function(){
-
-   }, 1000);
-   console.log('score: '+score)
-         puntos.value=score;
+   puntos.value='PUNTOS: '+ score;
         
 }
                
