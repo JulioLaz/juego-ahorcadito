@@ -34,7 +34,7 @@ h1{
 input{
    text-align: center;
    display: flex;
-   margin: .5rem 0;
+   /* margin: .5rem 0; */
    width: 90vw;
 }
 .letra-vida{
@@ -42,41 +42,40 @@ input{
    text-align: center;
    justify-content: space-evenly;
    align-items: center;
-   margin: 1rem 0;
+   margin: .5rem 0;
 }
 div .letra{
-   width: 20vw;
-   height: 10vh;
+   width: 22vw;
+   height: 8.5vh;
    text-decoration: blink;
    cursor: pointer;
    font-size: 2rem;
 }
 div .vida{
-   width: 40vw;
-   /* height: 12vh; */
+   width: 35vw;
    outline: none;
    font-size: calc(.8rem + 1.2vw);
 }
 
 div .formato-input{
-   /* height: 4.5rem; */
    border-radius: 1rem;
    box-shadow: 8px 8px 10px 3px rgba(0, 0, 0, 0.4);
    background-color: rgba(198, 163, 121, 0.651);
    font-family: 'Courier New', Courier, monospace;
    font-weight: bold;
    border: 1px solid black;
-   margin-top: 5px;
+   margin-bottom: 5px;
    padding-bottom: 5px;
 }
 div .vidapuntos{
-   height: 5vh;
+   height: 5.7vh;
 }
 
 div .puntos{
    display: flex;
    justify-content: flex-end;
    align-items: center;
+   margin-bottom: 0;
 }
 label.puntos{
    margin-right: 1rem;
@@ -158,16 +157,16 @@ canvas{
    align-items: center;
    display: flex;
    width: 40vw;
-margin-right: .5rem;
+   margin-right: .5rem;
 }
 #comprobar{
-   height: 3.5rem;
+   height: 10vh;
 }
 .btnJuego{
    display: inline-block;
    font-size: calc(.6rem + .8vw);
    width: 37vw;
-   height: 5vh;
+   height: 6vh;
    margin: .5rem 0;
    border: 1px solid white;
 
@@ -184,34 +183,36 @@ margin-right: .5rem;
    
 }
 .labelAdd{
+   width: 37vw;
+   display: flex;
+   justify-content: center;
    font-size: calc(.5rem + .8vw);
    font-family: 'Courier New', Courier, monospace;
    text-align: center;
    font-weight: bold;
 }
 .palabraAdd{
-   width: 20vw;
-   height: 4.5vh;
+   width: 18vw;
+   height: 5.5vh;
    border-radius: .5rem;
    font-size: calc(.65rem + .8vw);
    border: 1px solid black;
    margin-right: .5rem;
+   /* margin-top: 0; */
    color: gray;
    font-weight: bold;
    
 }
 .btnpalabraAdd{
    width: 16vw;
-   height: 5vh;
+   height: 6vh;
 }
 .cajaAddPalabra{
    display: flex;
-   justify-content: space-between;
+   justify-content: space-around;
    align-items: center;
 }
-.cajaHelp{
-   justify-content: center;
-}
+
 @keyframes pulso{
 0%{
    transform: scale(1.2);
@@ -233,9 +234,26 @@ margin-right: .5rem;
 }
 .btnHomeReset{
    width: 18vw;
-   height: 6vh;
+   height: 7vh;
    background-color: chocolate;
 }
 .btnHome{
    margin-right:.5rem;
+}
+button.ayuda{
+   width: 22vw;
+   height: 4vh;
+   margin: 0%;
+   box-shadow: none;
+}
+#helpWord{
+margin: 0%;
+font-size: calc(.4rem + 1.5vw);
+font-weight: 100;
+}
+.inputLetras{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin: 0;
 }

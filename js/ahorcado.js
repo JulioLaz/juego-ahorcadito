@@ -30,17 +30,24 @@ function listasAdd(lsts){
    }
 function btnhelpWord(){
    audioEnter.play();
-   document.querySelector("#helpWord").style.width = "20vw";
-   document.querySelector("#helpWord").style.height = "4.3vh";
-   document.querySelector("#helpWord").style.border = "1px solid black";
+   document.getElementById('ayuda').innerHTML="";
+   document.querySelector("#ayuda").style.border = "none";
+   document.querySelector("#ayuda").style.margin = "0vw";
+   document.querySelector("#ayuda").style.padding = "0vw";
+   document.querySelector("#ayuda").style.width = "0vw";
+   document.querySelector("#ayuda").style.height = "0vh";
+
+   document.querySelector("#helpWord").style.border = 0;
+   document.querySelector("#helpWord").style.width = "22vw";
+   document.querySelector("#helpWord").style.height = "3.8vh";
    document.querySelector("#helpWord").style.background = "black";
    document.querySelector("#helpWord").style.color = "white";
 }
 
 function helpWordAdd(palabraSecreta){
-   if (listasNumeros.includes(palabraSecreta.toLowerCase())){help.value='NUMEROS'}
-   if (listasFrutas.includes(palabraSecreta.toLowerCase())){help.value='FRUTAS'}
-   if (listasMeses.includes(palabraSecreta.toLowerCase())){help.value='MESES'}
+   if (listasNumeros.includes(palabraSecreta.toLowerCase())){help.value='UN NUMERO'}
+   if (listasFrutas.includes(palabraSecreta.toLowerCase())){help.value='UNA FRUTA'}
+   if (listasMeses.includes(palabraSecreta.toLowerCase())){help.value='UN MES'}
    if (!(listasNumeros.includes(palabraSecreta.toLowerCase()))&&!(listasFrutas.includes(palabraSecreta.toLowerCase()))&&!(listasMeses.includes(palabraSecreta.toLowerCase())))
    {help.value='Es tu palabra'}
 }
@@ -95,7 +102,7 @@ function ingresoPalabra(){
             inputPalabra.value="";
          }
       }else{
-         alert('Caracter no válido -SOLO LETRAS MAÚSCULAS!!!');
+         // alert('No válido - LETRAS MAYÚSCULAS!!!');
          inputPalabra.value="";
       }
    });
@@ -112,11 +119,13 @@ function ingresoCaracter(){
                      btnComprobar();
                }
             }else{
-               info.value='Caracter no válido!!! PROBÁ CON MAYÚSCULA';
+               info.value='Caracter no válido!!!';
                setTimeout(function(){
-               entrada.value=''}, 500);
-            }
-         });
+                  info.value='PROBÁ CON MAYÚSCULA';
+            }, 500);
+               setTimeout(function(){entrada.value=''}, 500);
+               }
+            });
 }
 
 function verPalabra(palabraSecreta){
@@ -196,7 +205,7 @@ function contadorFallos(ltr){
          if(arrayErrores.length === vida){
             puntaje=99999;
             puntosAdd(puntaje)
-            document.getElementById('titulo').innerHTML= '💀 PERDISTE 5️⃣0️⃣0️⃣PUNTOS 💀';
+            document.getElementById('titulo').innerHTML= 'PERDISTE5️⃣0️⃣0️⃣PUNTOS';
 
             vidas.value="💀PERDISTE💀"
             personaDeath();
@@ -241,14 +250,14 @@ function contadorIntentos(ltr){
          document.getElementById('errores').innerHTML= "<img src=img/pinguino.gif>";
          ganaste();
          audioVictoria.play();
-         document.getElementById('titulo').innerHTML= '🤩 SUMASTE 1️⃣0️⃣0️⃣0️⃣ PUNTOS 🤩';
+         document.getElementById('titulo').innerHTML= '🤩 1️⃣0️⃣0️⃣0️⃣ 🤩';
          
-         info.value='-----GANASTE-----'+puntos.value+"PUNTOS";
+         info.value='GANASTE '+puntos.value;
          
          setTimeout(function(){
                //  alert('!!!GANASTE!!! PUNTOS: '+puntos.value);
                 info.value='JUGAR OTRA VEZ';
-                document.getElementById('errores').innerHTML= ""}, 3000);
+                document.getElementById('errores').innerHTML= ""}, 2500);
                 arrayErrores=[],arrayEntrada=[],vida=5;
                 setTimeout(function(){
                    canvas.width=canvas.width;
@@ -269,7 +278,7 @@ function btnJugar(){
    ingresoCaracter();
    vidas.value='😊😊😊😊😊';
    vida=5;
-   info.value='JUGAR: INGRESA UNA LETRA';
+   info.value='INGRESA UNA LETRA';
    deleteHelp();
  document.getElementById('titulo').innerHTML=
  `<div class="titulo">
@@ -286,6 +295,15 @@ function deleteHelp(){
    document.querySelector("#helpWord").style.height = "0vh";
    document.querySelector("#helpWord").style.border = "none";
    document.querySelector("#helpWord").style.background = "none";
+   
+   document.getElementById('ayuda').innerHTML="AYUDA";
+   document.querySelector("#ayuda").style.border = "1px solid white";
+   document.querySelector("#ayuda").style.background = "chocolate";
+   document.querySelector("#ayuda").style.margin = "0vw";
+   document.querySelector("#ayuda").style.padding = "0vw";
+   document.querySelector("#ayuda").style.width = "22vw";
+   document.querySelector("#ayuda").style.height = "4vh";
+
 }
 
 function btnRefrescar(){

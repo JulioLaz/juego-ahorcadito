@@ -24,9 +24,14 @@
          <input type='text' name='juego' id='info' class='info '>
       </div>
       <div class='letra-vida'>
-         <div>
-            <label for='juego'>LETRA</label>
-            <input type='text' name='juego' id='letra' placeholder='A-Z' class='letra formato-input' maxlength='1' autofocus>
+         <div class="inputLetras">
+            <div>
+               <input type='text' name='juego' id='letra' placeholder='A-Z' class='letra formato-input' maxlength='1' autofocus>
+            </div>
+            <div class="cajaAddPalabra cajaHelp">
+               <button id="ayuda" class=' btnJuego btnpalabraAdd ayuda' onclick="btnhelpWord()">Ayuda</button>
+               <input type="textos" id="helpWord" class='palabraAdd' readonly>
+            </div>
          </div>
          <div class='letraIngresada' >
             <div class='letraI errores' id='errores'></div>
@@ -34,7 +39,7 @@
          <div class=''>
             <input type='text' name='vida' id='vida' class='vida vidapuntos animated formato-input' value='SinOutLine' readonly>
             <div class="puntos">
-               <input type='text' name='puntos' id='puntos' class='vida vidapuntos animated formato-input' value='SinOutLine' readonly>
+               <input type='text' name='puntos' id='puntos' class='vida vidapuntos animated formato-input puntos' value='SinOutLine' readonly>
             </div>
          </div>
       </div>
@@ -47,16 +52,13 @@
       <div class='botones'>
          <button id='comprobar' onclick='btnComprobar()' class='btnJuego'>COMPROBAR</button>
          <button onclick='btnJugar()' class='btnJuego'>NUEVO JUEGO </button>
+         <div>
             <label for='texto' class="labelAdd">Ingresa nueva palabra hasta 7 letras</label>
             <div class="cajaAddPalabra">
                <input type="texto" id="palabraAdd" maxlength="7" class='palabraAdd' placeholder="Ingresar">
                <button class=' btnJuego btnpalabraAdd ' onclick="btnPalabraAdd()">Agregar</button>
             </div>
-            <label for='textos' class="labelAdd">Ayuda: pertenece a...</label>
-            <div class="cajaAddPalabra cajaHelp">
-               <input type="textos" id="helpWord" class='palabraAdd' readonly>
-               <button class=' btnJuego btnpalabraAdd ' onclick="btnhelpWord()">Ayuda</button>
-            </div>
+         </div>
             <div class="cajaInput">
                <a class='nivel' href='index.html'><button class='btnJuego btnHomeReset btnHome' onclick="btnHome()">HOME</button></a>
                <button class='btnJuego btnHomeReset' onclick="btnRefrescar()">RESET</button>
