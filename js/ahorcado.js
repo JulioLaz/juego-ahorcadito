@@ -3,9 +3,13 @@ let entrada = document.querySelector('.letra'),
     info = document.querySelector('.info'),
     vidas = document.querySelector('#vida');
     help = document.querySelector('#helpWord');
+    puntos = document.querySelector('#puntos');
     document.getElementById('helpWord').innerHTML='NUMEROS😘';
     document.getElementById('errores').innerHTML='🤩: ';
+
     info.value='Ingresar una Letra!!!';//en el input #info
+    puntos.value="PUNTOS: 0"
+
 
     const audioInicioJuego = new Audio(`sonidos/inicioJuego.mp3`)
     const audioAcierto = new Audio(`sonidos/acierto.mp3`)
@@ -19,23 +23,31 @@ function listasAdd(lsts){
       let palabraSecreta=lsts[numeroAleatorio];
      palabrita= palabraSecreta.toUpperCase();
      palabraSecreta=palabrita;
+     console.log("palabraSecreta: "+palabraSecreta)
       arrayWord(palabraSecreta);
       helpWordAdd(palabraSecreta)
       return palabraSecreta;
    }
 function btnhelpWord(){
    audioEnter.play();
-   document.querySelector("#helpWord").style.width = "20vw";
-   document.querySelector("#helpWord").style.height = "4.3vh";
-   document.querySelector("#helpWord").style.border = "1px solid black";
+   document.getElementById('ayuda').innerHTML="";
+   document.querySelector("#ayuda").style.border = "none";
+   document.querySelector("#ayuda").style.margin = "0vw";
+   document.querySelector("#ayuda").style.padding = "0vw";
+   document.querySelector("#ayuda").style.width = "0vw";
+   document.querySelector("#ayuda").style.height = "0vh";
+
+   document.querySelector("#helpWord").style.border = 0;
+   document.querySelector("#helpWord").style.width = "22vw";
+   document.querySelector("#helpWord").style.height = "3.8vh";
    document.querySelector("#helpWord").style.background = "black";
    document.querySelector("#helpWord").style.color = "white";
 }
 
 function helpWordAdd(palabraSecreta){
-   if (listasNumeros.includes(palabraSecreta.toLowerCase())){help.value='NUMEROS'}
-   if (listasFrutas.includes(palabraSecreta.toLowerCase())){help.value='FRUTAS'}
-   if (listasMeses.includes(palabraSecreta.toLowerCase())){help.value='MESES'}
+   if (listasNumeros.includes(palabraSecreta.toLowerCase())){help.value='UN NUMERO'}
+   if (listasFrutas.includes(palabraSecreta.toLowerCase())){help.value='UNA FRUTA'}
+   if (listasMeses.includes(palabraSecreta.toLowerCase())){help.value='UN MES'}
    if (!(listasNumeros.includes(palabraSecreta.toLowerCase()))&&!(listasFrutas.includes(palabraSecreta.toLowerCase()))&&!(listasMeses.includes(palabraSecreta.toLowerCase())))
    {help.value='Es tu palabra'}
 }
@@ -90,7 +102,7 @@ function ingresoPalabra(){
             inputPalabra.value="";
          }
       }else{
-         alert('Caracter no válido -SOLO LETRAS MAÚSCULAS!!!');
+         // alert('No válido - LETRAS MAYÚSCULAS!!!');
          inputPalabra.value="";
       }
    });
@@ -107,11 +119,13 @@ function ingresoCaracter(){
                      btnComprobar();
                }
             }else{
-               info.value='Caracter no válido!!! PROBÁ CON MAYÚSCULA';
+               info.value='Caracter no válido!!!';
                setTimeout(function(){
-               entrada.value=''}, 500);
-            }
-         });
+                  info.value='PROBÁ CON MAYÚSCULA';
+            }, 500);
+               setTimeout(function(){entrada.value=''}, 500);
+               }
+            });
 }
 
 function verPalabra(palabraSecreta){
@@ -162,8 +176,8 @@ function contadorFallos(ltr){
          arrayEntrada[a]=ltr;
 
          let arrayErrores = arrayEntrada.filter((item,index)=>{
-             return arrayEntrada.indexOf(item) === index}),
-             vidasGit=[],
+             return arrayEntrada.indexOf(item) === index});
+         let vidasGit=[];
              veces=vida-arrayErrores.length;
              a++;
          
@@ -187,20 +201,25 @@ function contadorFallos(ltr){
             cuervo();
          }
          entrada.value='';
+         console.log(arrayErrores.length+ '  '+ vida)
          if(arrayErrores.length === vida){
-            vidas.value="💀"
+            puntaje=99999;
+            puntosAdd(puntaje)
+            document.getElementById('titulo').innerHTML= 'PERDISTE5️⃣0️⃣0️⃣PUNTOS';
+
+            vidas.value="💀PERDISTE💀"
             personaDeath();
             caja(false);
             audioFinalPerdido.play();
-             info.value='JUEGA OTRA VEZ - PALABRA OCULTA: '+arrayPalabra.join('');
+             info.value='PALABRA OCULTA: '+arrayPalabra.join('');
              document.getElementById('errores').innerHTML= "<img src=img/pinguinotriste.gif>";
              setTimeout(function(){
-             alert('!!!PERDISTE!!!  PALABRA OCULTA: '+arrayPalabra.join(''));
+            //  alert('!!!PERDISTE!!!  PALABRA OCULTA: '+arrayPalabra.join(''));
              arrayErrores=[],arrayEntrada=[],vida=5;
              canvas.width=canvas.width;
              patibulo();
              btnJugar();
-            }, 500);
+            }, 3500);
          }
       }
       }else{
@@ -208,42 +227,49 @@ function contadorFallos(ltr){
       }
    }
 
-
+let puntaje=0;
 function contadorIntentos(ltr){
    let a1=palabraOculta.join(''),
-   a2=arrayPalabra.join('');
-   
+   a2=arrayPalabra.join(''),
+   cantidadLetrasAcertadas;
+   cantidadLetras=a2.length;
+   cantidadLetrasAcertadas=(palabraOculta.filter(e=>e!='_ ')).length;
+   puntaje=(cantidadLetrasAcertadas*1000)/(cantidadLetras);
    const comparacionArrayEntradaSalida = function (a1, a2){
       let i = a1.length;
       if (i != a2.length) return false;
       while(i--){
-        if (a1[i] !== a2[i]) return false;
+         if (a1[i] !== a2[i]) return false;
       }
       return true;
    }
-      if(arrayPalabra.includes(ltr)){
-         if(comparacionArrayEntradaSalida(a1,a2)){
-            document.getElementById('errores').innerHTML= "<img src=img/pinguino.gif>";
-            ganaste();
-            audioVictoria.play();
-            info.value='-----GANASTE-----';
-            setTimeout(function(){
-               alert('!!!GANASTE!!!');
-               info.value='JUGAR OTRA VEZ';
-               document.getElementById('errores').innerHTML= "";
-               
-            }, 1000);
-            arrayErrores=[],arrayEntrada=[],vida=5;
-            setTimeout(function(){
-               canvas.width=canvas.width;
-               patibulo();
-               btnJugar();
-            }, 1000);
-            
-         }else{
-            info.value= 'Ingresa otra letra';
-         }
-      }
+   if(arrayPalabra.includes(ltr)){
+      puntosAdd(puntaje);
+      
+      if(comparacionArrayEntradaSalida(a1,a2)){
+         document.getElementById('errores').innerHTML= "<img src=img/pinguino.gif>";
+         ganaste();
+         audioVictoria.play();
+         document.getElementById('titulo').innerHTML= '🤩 1️⃣0️⃣0️⃣0️⃣ 🤩';
+         
+         info.value='GANASTE '+puntos.value;
+         
+         setTimeout(function(){
+               //  alert('!!!GANASTE!!! PUNTOS: '+puntos.value);
+                info.value='JUGAR OTRA VEZ';
+                document.getElementById('errores').innerHTML= ""}, 2500);
+                arrayErrores=[],arrayEntrada=[],vida=5;
+                setTimeout(function(){
+                   canvas.width=canvas.width;
+                   patibulo();
+                   btnJugar();
+                  }, 5000);
+                  
+               }else{
+                  info.value= 'Ingresa otra letra';
+               }
+               console.log(ltr)
+   }
 }
 
 function btnJugar(){
@@ -252,8 +278,15 @@ function btnJugar(){
    ingresoCaracter();
    vidas.value='😊😊😊😊😊';
    vida=5;
-   info.value='JUGAR: INGRESA UNA LETRA';
-   deleteHelp()
+   info.value='INGRESA UNA LETRA';
+   deleteHelp();
+ document.getElementById('titulo').innerHTML=
+ `<div class="titulo">
+      <h1 id="titulo" class="h1">
+         JUEGO DEL <strong>AHORCADITO</strong>
+      </h1>
+   </div>`;
+
 }
 btnJugar();
 
@@ -262,6 +295,15 @@ function deleteHelp(){
    document.querySelector("#helpWord").style.height = "0vh";
    document.querySelector("#helpWord").style.border = "none";
    document.querySelector("#helpWord").style.background = "none";
+   
+   document.getElementById('ayuda').innerHTML="AYUDA";
+   document.querySelector("#ayuda").style.border = "1px solid white";
+   document.querySelector("#ayuda").style.background = "chocolate";
+   document.querySelector("#ayuda").style.margin = "0vw";
+   document.querySelector("#ayuda").style.padding = "0vw";
+   document.querySelector("#ayuda").style.width = "22vw";
+   document.querySelector("#ayuda").style.height = "4vh";
+
 }
 
 function btnRefrescar(){
@@ -269,3 +311,35 @@ function btnRefrescar(){
    window.location.reload()
 }
 
+let arrayPuntos=[],
+score=0;
+
+function puntosAdd(puntaje){
+      let arrayPalabraNoRepeat = arrayPalabra.filter((item,index)=>{
+         return arrayPalabra.indexOf(item) === index});
+         LetraAcertadas=(palabraOculta.filter(e=>e!='_ '));
+      let LetraAcertadasNoRepeat = LetraAcertadas.filter((item,index)=>{
+         return LetraAcertadas.indexOf(item) === index});
+         if(arrayPalabraNoRepeat.length==LetraAcertadasNoRepeat.length){
+            for(let i =0;i<10;i++){
+               arrayPuntos.push(Math.random())
+            }
+         }
+         arrayPuntos.push((puntaje));
+         if(puntaje==99999){
+            for(let i =0;i<=arrayPalabraNoRepeat.length;i++){
+               arrayPuntos.pop()
+            }
+         }
+   for(let i =0;i<arrayPuntos.length;i++){
+      if(arrayPuntos[i]==arrayPuntos[i-1]){
+         arrayPuntos.pop()
+      }
+   }
+   score=arrayPuntos.length*100;
+   puntos.value='PUNTOS: '+ score;
+        
+}
+               
+               
+               

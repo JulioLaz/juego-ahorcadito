@@ -38,8 +38,8 @@ marquee{
 .indicacion{
    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
    text-align: center;
-   width: 70vw;
-   height: 45vh;
+   width: 80vw;
+   height: 49vh;
    border-radius:1rem;
    padding: .5vw;
    border: 1px solid white;
@@ -61,20 +61,20 @@ marquee{
 }
 h2.titulo{
    text-align: center;
-   margin: 1rem;
-   margin-bottom: calc(1.5rem + 2vw);
+   margin-top: 1rem;
+   margin-bottom: calc(.5rem + 1.5vw);
    font-size: calc(1.5rem + 1vw);
 }
 .parrafo{
-   font-size: calc(.8rem + .6vw);
+   font-size: calc(.85rem + .6vw);
    margin: .2rem .5rem;
    padding: .2rem;
    list-style: none;
    color:black;
 }
 div .cajaArriba{
-   height: 90%;
-   background-color: rgba(160, 186, 215, 0.4);
+   background-color: rgba(160, 186, 215, 0.7);
+height: 46vh;
 }
 .pie{
    margin-top: 1.5rem;
