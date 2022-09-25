@@ -54,7 +54,6 @@ marquee{
    text-shadow: -3px 1px 4px whitesmoke;
    font-weight: 500;
 }
-
 .indicacion:hover{
    font-size: calc(1rem + .6vw);
    transition:font-size 0.4s ease ;
