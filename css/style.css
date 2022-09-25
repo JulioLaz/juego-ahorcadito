@@ -43,7 +43,7 @@ marquee{
    border-radius:1rem;
    padding: .5vw;
    border: 1px solid white;
-   margin: 1.5rem 0;
+   margin: 1rem 0;
    font-size:clamp(.6rem, calc(.6rem + 0.6vw), 1.2rem);
    background: rgb(160, 186, 215);
    resize:none;
